@@ -1,15 +1,16 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("MVCExample")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Title MVCExample")]
+[assembly: AssemblyDescription("Esto es una descripción de ejemplo")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MVCExample")]
+[assembly: AssemblyCompany("Jnc Solutions")]
+[assembly: AssemblyProduct("MVCExample - Product Example")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,3 +34,5 @@ using System.Runtime.InteropServices;
 // mediante el carácter '*', como se muestra a continuación:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("es-PE")]
+
