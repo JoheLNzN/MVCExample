@@ -1,0 +1,2915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_ICMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADM_ACTIVITY">
+          <Key>
+            <PropertyRef Name="ACT_ID" />
+          </Key>
+          <Property Name="ACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACT_CONT_ID" Type="int" Nullable="false" />
+          <Property Name="ACT_USER_ID" Type="int" Nullable="false" />
+          <Property Name="ACT_DESCRIPTION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ACT_DATE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_CONTAINER">
+          <Key>
+            <PropertyRef Name="CONT_ID" />
+          </Key>
+          <Property Name="CONT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONT_CODE" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="CONT_SHIP_ID" Type="int" Nullable="false" />
+          <Property Name="CONT_USER_ID" Type="int" />
+          <Property Name="CONT_AMOUNT_ITEM" Type="int" />
+          <Property Name="CONT_GROUP_ITEM" Type="int" />
+          <Property Name="CONT_WEIGHT" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="CONT_PREC_ADUANA" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONT_PREC_LINE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONT_PREC_ITK" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONT_PREC_CUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONT_OBS" Type="nvarchar(max)" />
+          <Property Name="CONT_STATE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CONT_STATE_INSPECTION" Type="int" />
+          <Property Name="CONT_STATE_DETECTION" Type="int" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_CONTAINER_TYPE">
+          <Key>
+            <PropertyRef Name="CONTY_ID" />
+          </Key>
+          <Property Name="CONTY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONTY_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUS_ID" />
+          </Key>
+          <Property Name="CUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUS_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUS_RUC" Type="varchar" MaxLength="11" />
+          <Property Name="CUS_PHONE" Type="varchar" MaxLength="9" />
+          <Property Name="CUS_ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_DISTRIBUTION">
+          <Key>
+            <PropertyRef Name="DIS_ID" />
+          </Key>
+          <Property Name="DIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIS_SHIP_ID" Type="int" Nullable="false" />
+          <Property Name="DIS_LOTE_ID" Type="int" Nullable="false" />
+          <Property Name="DIS_AMOUNT_TOTAL" Type="int" Nullable="false" />
+          <Property Name="DIS_WEIGHT_SHIPMENT" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_DISTRIBUTION_PALET">
+          <Key>
+            <PropertyRef Name="DPAL_ID" />
+          </Key>
+          <Property Name="DPAL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DPAL_CONT_ID" Type="int" Nullable="false" />
+          <Property Name="DPAL_ITEM_NRO" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="DPAL_POSITION" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="DPAL_LOTE_CODE" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="DPAL_CODE_PALETA" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="DPAL_ITEM_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DPAL_ITEM_PHOTO" Type="nvarchar" MaxLength="100" />
+          <Property Name="DPAL_OBS_DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_ITEM_TYPE">
+          <Key>
+            <PropertyRef Name="ITEMTY_ID" />
+          </Key>
+          <Property Name="ITEMTY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ITEMTY_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ITEMTY_UNIT_WEIGHT" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="ITEMTY_UNIT_MEASURE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_LOTE">
+          <Key>
+            <PropertyRef Name="LOTE_ID" />
+          </Key>
+          <Property Name="LOTE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOTE_CODE" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="LOTE_AMOUNT_ITEM" Type="int" Nullable="false" />
+          <Property Name="LOTE_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="LOTE_ITEMTY_ID" Type="int" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_NAVE">
+          <Key>
+            <PropertyRef Name="NAV_ID" />
+          </Key>
+          <Property Name="NAV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAV_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_NOTIFICATION">
+          <Key>
+            <PropertyRef Name="NOT_ID" />
+          </Key>
+          <Property Name="NOT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOT_USER_ID" Type="int" Nullable="false" />
+          <Property Name="NOT_CONT_ID" Type="int" Nullable="false" />
+          <Property Name="NOT_DESCRIPTION" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="NOT_ID_PHONE" Type="int" Nullable="false" />
+          <Property Name="NOT_ACT_AUTHORIZATION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NOT_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_OBSERVATION">
+          <Key>
+            <PropertyRef Name="OBS_ID" />
+          </Key>
+          <Property Name="OBS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OBS_CONT_ID" Type="int" Nullable="false" />
+          <Property Name="OBS_DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OBS_PHOTO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PHOTO">
+          <Key>
+            <PropertyRef Name="PHO_ID" />
+          </Key>
+          <Property Name="PHO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PHO_PHOTYPE_ID" Type="int" Nullable="false" />
+          <Property Name="PHO_CONT_ID" Type="int" Nullable="false" />
+          <Property Name="PHO_DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PHO_PATH" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PHOTO_TYPE">
+          <Key>
+            <PropertyRef Name="PHOTYPE_ID" />
+          </Key>
+          <Property Name="PHOTYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PHOTYPE_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PORT_DISCHARGE">
+          <Key>
+            <PropertyRef Name="PORTD_ID" />
+          </Key>
+          <Property Name="PORTD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PORTD_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PORT_LOAD">
+          <Key>
+            <PropertyRef Name="PORTL_ID" />
+          </Key>
+          <Property Name="PORTL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PORTL_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PRODUCER">
+          <Key>
+            <PropertyRef Name="PROD_ID" />
+          </Key>
+          <Property Name="PROD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROD_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_PRODUCT">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRO_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_REPORT_OBSERVATION">
+          <Key>
+            <PropertyRef Name="RPTOBS_ID" />
+          </Key>
+          <Property Name="RPTOBS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RPTOBS_ID_CUS" Type="int" Nullable="false" />
+          <Property Name="RPTOBS_ID_SHIP" Type="int" Nullable="false" />
+          <Property Name="RPTOBS_OBSERVATION" Type="nvarchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_RPTS_ITK">
+          <Key>
+            <PropertyRef Name="RPTSI_ID" />
+          </Key>
+          <Property Name="RPTSI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RPTSI_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_RPTS_WAREHOUSE">
+          <Key>
+            <PropertyRef Name="RPTSW_ID" />
+          </Key>
+          <Property Name="RPTSW_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RPTSW_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_SHIPMENT">
+          <Key>
+            <PropertyRef Name="SHIP_ID" />
+          </Key>
+          <Property Name="SHIP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHIP_CODE" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="SHIP_CUS_ID" Type="int" />
+          <Property Name="SHIP_SHIPPER_ID" Type="int" />
+          <Property Name="SHIP_NAV_ID" Type="int" />
+          <Property Name="SHIP_RPTSI_ID" Type="int" />
+          <Property Name="SHIP_RPTSW_ID" Type="int" />
+          <Property Name="SHIP_PORTL_ID" Type="int" />
+          <Property Name="SHIP_PORTD_ID" Type="int" />
+          <Property Name="SHIP_PROD_ID" Type="int" />
+          <Property Name="SHIP_PRO_ID" Type="int" />
+          <Property Name="SHIP_ITEMTY_ID" Type="int" />
+          <Property Name="SHIP_CONTY_ID" Type="int" />
+          <Property Name="SHIP_RPTS_CLIENT" Type="nvarchar" MaxLength="100" />
+          <Property Name="SHIP_NRO_PER" Type="nvarchar" MaxLength="18" />
+          <Property Name="SHIP_BOOKING" Type="nvarchar" MaxLength="18" />
+          <Property Name="SHIP_BL" Type="nvarchar" MaxLength="18" />
+          <Property Name="SHIP_DATE_SCHEDULED" Type="datetime" Nullable="false" />
+          <Property Name="SHIP_TOTAL_ITEMS" Type="int" Nullable="false" />
+          <Property Name="SHIP_AMOUNT_CONTAINER" Type="int" Nullable="false" />
+          <Property Name="SHIP_VESSEL" Type="int" />
+          <Property Name="SHIP_REFERENCE" Type="nvarchar" MaxLength="30" />
+          <Property Name="SHIP_STATE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SHIP_DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="SHIP_OBS_GENERAL" Type="nvarchar(max)" />
+          <Property Name="SHIP_OBS_REPORT" Type="nvarchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_SHIPPER">
+          <Key>
+            <PropertyRef Name="SHIPPER_ID" />
+          </Key>
+          <Property Name="SHIPPER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHIPPER_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_LASTNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_PASSWORD" Type="nvarchar" MaxLength="250" />
+          <Property Name="USER_DNI" Type="nvarchar" MaxLength="10" />
+          <Property Name="USER_BIRTHDATE" Type="date" />
+          <Property Name="USER_MOB_PHONE" Type="nvarchar" MaxLength="15" />
+          <Property Name="USER_PHONE" Type="nvarchar" MaxLength="15" />
+          <Property Name="USER_TOKEN" Type="nvarchar" MaxLength="100" />
+          <Property Name="USER_ROL_ID" Type="int" Nullable="false" />
+          <Property Name="ISACTIVE" Type="bit" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <EntityType Name="ADM_USER_MOBILE">
+          <Key>
+            <PropertyRef Name="UMOB_ID" />
+          </Key>
+          <Property Name="UMOB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UMOB_USER_ID" Type="int" Nullable="false" />
+          <Property Name="UMOB_TOKEN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UMOB_ID_PHONE" Type="int" />
+          <Property Name="UMOB_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="datetime" Nullable="false" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="datetime" />
+          <Property Name="AUD_USERID_REGISTERED" Type="int" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="int" />
+        </EntityType>
+        <Association Name="FK__ADM_ACTIV__ACT_C__42E1EEFE">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_ACTIVITY" Type="Self.ADM_ACTIVITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_ACTIVITY">
+              <PropertyRef Name="ACT_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_ACTIV__ACT_U__43D61337">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_ACTIVITY" Type="Self.ADM_ACTIVITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_ACTIVITY">
+              <PropertyRef Name="ACT_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_CONTA__CONT___0C85DE4D">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_SHIP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DIS_L__04E4BC85">
+          <End Role="ADM_LOTE" Type="Self.ADM_LOTE" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION" Type="Self.ADM_DISTRIBUTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_LOTE">
+              <PropertyRef Name="LOTE_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION">
+              <PropertyRef Name="DIS_LOTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DIS_S__03F0984C">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION" Type="Self.ADM_DISTRIBUTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION">
+              <PropertyRef Name="DIS_SHIP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DPAL___31B762FC">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION_PALET" Type="Self.ADM_DISTRIBUTION_PALET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION_PALET">
+              <PropertyRef Name="DPAL_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_LOTE__LOTE_I__693CA210">
+          <End Role="ADM_ITEM_TYPE" Type="Self.ADM_ITEM_TYPE" Multiplicity="1" />
+          <End Role="ADM_LOTE" Type="Self.ADM_LOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ITEM_TYPE">
+              <PropertyRef Name="ITEMTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_LOTE">
+              <PropertyRef Name="LOTE_ITEMTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_NOTIF__NOT_C__4C6B5938">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_NOTIFICATION" Type="Self.ADM_NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_NOTIFICATION">
+              <PropertyRef Name="NOT_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_NOTIF__NOT_U__4B7734FF">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_NOTIFICATION" Type="Self.ADM_NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_NOTIFICATION">
+              <PropertyRef Name="NOT_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_OBSER__OBS_C__2A164134">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_OBSERVATION" Type="Self.ADM_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_OBSERVATION">
+              <PropertyRef Name="OBS_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_PHOTO__PHO_C__22751F6C">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_PHOTO" Type="Self.ADM_PHOTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_PHOTO">
+              <PropertyRef Name="PHO_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_PHOTO__PHO_P__2180FB33">
+          <End Role="ADM_PHOTO_TYPE" Type="Self.ADM_PHOTO_TYPE" Multiplicity="1" />
+          <End Role="ADM_PHOTO" Type="Self.ADM_PHOTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PHOTO_TYPE">
+              <PropertyRef Name="PHOTYPE_ID" />
+            </Principal>
+            <Dependent Role="ADM_PHOTO">
+              <PropertyRef Name="PHO_PHOTYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_REPOR__RPTOB__5CA1C101">
+          <End Role="ADM_CUSTOMER" Type="Self.ADM_CUSTOMER" Multiplicity="1" />
+          <End Role="ADM_REPORT_OBSERVATION" Type="Self.ADM_REPORT_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CUSTOMER">
+              <PropertyRef Name="CUS_ID" />
+            </Principal>
+            <Dependent Role="ADM_REPORT_OBSERVATION">
+              <PropertyRef Name="RPTOBS_ID_CUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_REPOR__RPTOB__5D95E53A">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_REPORT_OBSERVATION" Type="Self.ADM_REPORT_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_REPORT_OBSERVATION">
+              <PropertyRef Name="RPTOBS_ID_SHIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___70DDC3D8">
+          <End Role="ADM_CUSTOMER" Type="Self.ADM_CUSTOMER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CUSTOMER">
+              <PropertyRef Name="CUS_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_CUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___71D1E811">
+          <End Role="ADM_SHIPPER" Type="Self.ADM_SHIPPER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPPER">
+              <PropertyRef Name="SHIPPER_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_SHIPPER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___72C60C4A">
+          <End Role="ADM_NAVE" Type="Self.ADM_NAVE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_NAVE">
+              <PropertyRef Name="NAV_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_NAV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___73BA3083">
+          <End Role="ADM_RPTS_ITK" Type="Self.ADM_RPTS_ITK" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_RPTS_ITK">
+              <PropertyRef Name="RPTSI_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_RPTSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___74AE54BC">
+          <End Role="ADM_RPTS_WAREHOUSE" Type="Self.ADM_RPTS_WAREHOUSE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_RPTS_WAREHOUSE">
+              <PropertyRef Name="RPTSW_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_RPTSW_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___75A278F5">
+          <End Role="ADM_PORT_LOAD" Type="Self.ADM_PORT_LOAD" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PORT_LOAD">
+              <PropertyRef Name="PORTL_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PORTL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___76969D2E">
+          <End Role="ADM_PORT_DISCHARGE" Type="Self.ADM_PORT_DISCHARGE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PORT_DISCHARGE">
+              <PropertyRef Name="PORTD_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PORTD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___778AC167">
+          <End Role="ADM_PRODUCER" Type="Self.ADM_PRODUCER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PRODUCER">
+              <PropertyRef Name="PROD_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PROD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___787EE5A0">
+          <End Role="ADM_PRODUCT" Type="Self.ADM_PRODUCT" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PRODUCT">
+              <PropertyRef Name="PRO_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PRO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___797309D9">
+          <End Role="ADM_ITEM_TYPE" Type="Self.ADM_ITEM_TYPE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ITEM_TYPE">
+              <PropertyRef Name="ITEMTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ITEMTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___7A672E12">
+          <End Role="ADM_CONTAINER_TYPE" Type="Self.ADM_CONTAINER_TYPE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER_TYPE">
+              <PropertyRef Name="CONTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_CONTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_USER___UMOB___55009F39">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_USER_MOBILE" Type="Self.ADM_USER_MOBILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_USER_MOBILE">
+              <PropertyRef Name="UMOB_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_USER__USER_R__3B40CD36">
+          <End Role="ADM_ROL" Type="Self.ADM_ROL" Multiplicity="1" />
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ROL">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="ADM_USER">
+              <PropertyRef Name="USER_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="WEB_GetAllConfigurationByTableName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TABLE_NAME" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetAllContainerTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllDropDownListForShipmentDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllItemTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllReportShipmentsByCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllShipments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GetConfigurationById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CON_ID" Type="int" Mode="In" />
+          <Parameter Name="TB_NAME" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetContainersByShipmentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetDetailsByShipmentCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_CODE" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetDistributionLoteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOTE_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetExistsShipmentCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_CODE" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetInspectionReportByCustomerIdAndNroPer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_NRO_PER" Type="nvarchar" Mode="In" />
+          <Parameter Name="SHIP_CUS_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetLotesByShipmentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetReferenceByShipmentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetReportObservationById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RPTOBS_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetReportObservations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_CUS_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetShipmentsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_DATE_SCHEDULED_START" Type="date" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetUserByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_EMAIL" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetUserByEmailAndPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_EMAIL" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_PASSWORD" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_GetUserById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostDeleteConfiguration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CON_ID" Type="int" Mode="In" />
+          <Parameter Name="TB_NAME" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostDeleteLote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOTE_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostDeleteReportObservation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RPTOBS_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostDeleteShipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_CODE" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostDeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveConfiguration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CON_ID" Type="int" Mode="In" />
+          <Parameter Name="CON_DESC" Type="nvarchar" Mode="In" />
+          <Parameter Name="TB_NAME" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveContainer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CONT_ID" Type="int" Mode="In" />
+          <Parameter Name="CONT_CODE" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONT_SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="CONT_AMOUNT_ITEM" Type="int" Mode="In" />
+          <Parameter Name="CONT_WEIGHT" Type="decimal" Mode="In" />
+          <Parameter Name="CONT_PREC_ADUANA" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONT_PREC_LINE" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONT_PREC_ITK" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONT_PREC_CUS" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONT_OBS" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveForgetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_ID" Type="int" Mode="In" />
+          <Parameter Name="USER_PASSWORD_GENERATED" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveLote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOTE_ID" Type="int" Mode="In" />
+          <Parameter Name="LOTE_CODE" Type="nvarchar" Mode="In" />
+          <Parameter Name="LOTE_AMOUNT_ITEM" Type="int" Mode="In" />
+          <Parameter Name="LOTE_ITEMTY_ID" Type="int" Mode="In" />
+          <Parameter Name="DIS_SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="DIS_AMOUNT_TOTAL" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveReportObservation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RPTOBS_ID" Type="int" Mode="In" />
+          <Parameter Name="RPTOBS_OBSERVATION" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="RPTOBS_ID_CUS" Type="int" Mode="In" />
+          <Parameter Name="RPTOBS_ID_SHIP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveShipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_CODE" Type="nvarchar" Mode="In" />
+          <Parameter Name="CUS_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_TOTAL_ITEMS" Type="nvarchar" Mode="In" />
+          <Parameter Name="ITEMTY_ID" Type="int" Mode="In" />
+          <Parameter Name="CONTY_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_AMOUNT_CONTAINER" Type="int" Mode="In" />
+          <Parameter Name="SHIP_DATE_SCHEDULED" Type="date" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveShipmentDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_NRO_PER" Type="nvarchar" Mode="In" />
+          <Parameter Name="SHIP_PROD_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_DATE_SCHEDULED" Type="date" Mode="In" />
+          <Parameter Name="SHIP_BL" Type="nvarchar" Mode="In" />
+          <Parameter Name="SHIP_RPTSW_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_TOTAL_ITEMS" Type="int" Mode="In" />
+          <Parameter Name="SHIP_CUS_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_SHIPPER_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_PRO_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_RPTSI_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_PORTD_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_NAV_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_BOOKING" Type="nvarchar" Mode="In" />
+          <Parameter Name="SHIP_RPTS_CLIENT" Type="nvarchar" Mode="In" />
+          <Parameter Name="SHIP_PORTL_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SHIP_OBS_GENERAL" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SHIP_OBS_REPORT" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveShipmentReference" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SHIP_ID" Type="int" Mode="In" />
+          <Parameter Name="SHIP_REFERENCE" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostSaveUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_ID" Type="int" Mode="In" />
+          <Parameter Name="USER_NAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_LASTNAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_EMAIL" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_PASSWORD" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_DNI" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_BIRTHDATE" Type="date" Mode="In" />
+          <Parameter Name="USER_MOB_PHONE" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_PHONE" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_ROL_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WEB_PostValidateLoginByAccountAndPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USER_EMAIL" Type="nvarchar" Mode="In" />
+          <Parameter Name="USER_PASSWORD" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DB_ICMModelStoreContainer">
+          <EntitySet Name="ADM_ACTIVITY" EntityType="Self.ADM_ACTIVITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_CONTAINER" EntityType="Self.ADM_CONTAINER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_CONTAINER_TYPE" EntityType="Self.ADM_CONTAINER_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_CUSTOMER" EntityType="Self.ADM_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_DISTRIBUTION" EntityType="Self.ADM_DISTRIBUTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_DISTRIBUTION_PALET" EntityType="Self.ADM_DISTRIBUTION_PALET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_ITEM_TYPE" EntityType="Self.ADM_ITEM_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_LOTE" EntityType="Self.ADM_LOTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_NAVE" EntityType="Self.ADM_NAVE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_NOTIFICATION" EntityType="Self.ADM_NOTIFICATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_OBSERVATION" EntityType="Self.ADM_OBSERVATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PHOTO" EntityType="Self.ADM_PHOTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PHOTO_TYPE" EntityType="Self.ADM_PHOTO_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PORT_DISCHARGE" EntityType="Self.ADM_PORT_DISCHARGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PORT_LOAD" EntityType="Self.ADM_PORT_LOAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PRODUCER" EntityType="Self.ADM_PRODUCER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_PRODUCT" EntityType="Self.ADM_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_REPORT_OBSERVATION" EntityType="Self.ADM_REPORT_OBSERVATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_ROL" EntityType="Self.ADM_ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_RPTS_ITK" EntityType="Self.ADM_RPTS_ITK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_RPTS_WAREHOUSE" EntityType="Self.ADM_RPTS_WAREHOUSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_SHIPMENT" EntityType="Self.ADM_SHIPMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_SHIPPER" EntityType="Self.ADM_SHIPPER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_USER" EntityType="Self.ADM_USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADM_USER_MOBILE" EntityType="Self.ADM_USER_MOBILE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADM_ACTIV__ACT_C__42E1EEFE" Association="Self.FK__ADM_ACTIV__ACT_C__42E1EEFE">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_ACTIVITY" EntitySet="ADM_ACTIVITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_ACTIV__ACT_U__43D61337" Association="Self.FK__ADM_ACTIV__ACT_U__43D61337">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_ACTIVITY" EntitySet="ADM_ACTIVITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_CONTA__CONT___0C85DE4D" Association="Self.FK__ADM_CONTA__CONT___0C85DE4D">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DIS_L__04E4BC85" Association="Self.FK__ADM_DISTR__DIS_L__04E4BC85">
+            <End Role="ADM_LOTE" EntitySet="ADM_LOTE" />
+            <End Role="ADM_DISTRIBUTION" EntitySet="ADM_DISTRIBUTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DIS_S__03F0984C" Association="Self.FK__ADM_DISTR__DIS_S__03F0984C">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_DISTRIBUTION" EntitySet="ADM_DISTRIBUTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DPAL___31B762FC" Association="Self.FK__ADM_DISTR__DPAL___31B762FC">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_DISTRIBUTION_PALET" EntitySet="ADM_DISTRIBUTION_PALET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_LOTE__LOTE_I__693CA210" Association="Self.FK__ADM_LOTE__LOTE_I__693CA210">
+            <End Role="ADM_ITEM_TYPE" EntitySet="ADM_ITEM_TYPE" />
+            <End Role="ADM_LOTE" EntitySet="ADM_LOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_NOTIF__NOT_C__4C6B5938" Association="Self.FK__ADM_NOTIF__NOT_C__4C6B5938">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_NOTIFICATION" EntitySet="ADM_NOTIFICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_NOTIF__NOT_U__4B7734FF" Association="Self.FK__ADM_NOTIF__NOT_U__4B7734FF">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_NOTIFICATION" EntitySet="ADM_NOTIFICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_OBSER__OBS_C__2A164134" Association="Self.FK__ADM_OBSER__OBS_C__2A164134">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_OBSERVATION" EntitySet="ADM_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_PHOTO__PHO_C__22751F6C" Association="Self.FK__ADM_PHOTO__PHO_C__22751F6C">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_PHOTO" EntitySet="ADM_PHOTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_PHOTO__PHO_P__2180FB33" Association="Self.FK__ADM_PHOTO__PHO_P__2180FB33">
+            <End Role="ADM_PHOTO_TYPE" EntitySet="ADM_PHOTO_TYPE" />
+            <End Role="ADM_PHOTO" EntitySet="ADM_PHOTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_REPOR__RPTOB__5CA1C101" Association="Self.FK__ADM_REPOR__RPTOB__5CA1C101">
+            <End Role="ADM_CUSTOMER" EntitySet="ADM_CUSTOMER" />
+            <End Role="ADM_REPORT_OBSERVATION" EntitySet="ADM_REPORT_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_REPOR__RPTOB__5D95E53A" Association="Self.FK__ADM_REPOR__RPTOB__5D95E53A">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_REPORT_OBSERVATION" EntitySet="ADM_REPORT_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___70DDC3D8" Association="Self.FK__ADM_SHIPM__SHIP___70DDC3D8">
+            <End Role="ADM_CUSTOMER" EntitySet="ADM_CUSTOMER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___71D1E811" Association="Self.FK__ADM_SHIPM__SHIP___71D1E811">
+            <End Role="ADM_SHIPPER" EntitySet="ADM_SHIPPER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___72C60C4A" Association="Self.FK__ADM_SHIPM__SHIP___72C60C4A">
+            <End Role="ADM_NAVE" EntitySet="ADM_NAVE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___73BA3083" Association="Self.FK__ADM_SHIPM__SHIP___73BA3083">
+            <End Role="ADM_RPTS_ITK" EntitySet="ADM_RPTS_ITK" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___74AE54BC" Association="Self.FK__ADM_SHIPM__SHIP___74AE54BC">
+            <End Role="ADM_RPTS_WAREHOUSE" EntitySet="ADM_RPTS_WAREHOUSE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___75A278F5" Association="Self.FK__ADM_SHIPM__SHIP___75A278F5">
+            <End Role="ADM_PORT_LOAD" EntitySet="ADM_PORT_LOAD" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___76969D2E" Association="Self.FK__ADM_SHIPM__SHIP___76969D2E">
+            <End Role="ADM_PORT_DISCHARGE" EntitySet="ADM_PORT_DISCHARGE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___778AC167" Association="Self.FK__ADM_SHIPM__SHIP___778AC167">
+            <End Role="ADM_PRODUCER" EntitySet="ADM_PRODUCER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___787EE5A0" Association="Self.FK__ADM_SHIPM__SHIP___787EE5A0">
+            <End Role="ADM_PRODUCT" EntitySet="ADM_PRODUCT" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___797309D9" Association="Self.FK__ADM_SHIPM__SHIP___797309D9">
+            <End Role="ADM_ITEM_TYPE" EntitySet="ADM_ITEM_TYPE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___7A672E12" Association="Self.FK__ADM_SHIPM__SHIP___7A672E12">
+            <End Role="ADM_CONTAINER_TYPE" EntitySet="ADM_CONTAINER_TYPE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_USER___UMOB___55009F39" Association="Self.FK__ADM_USER___UMOB___55009F39">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_USER_MOBILE" EntitySet="ADM_USER_MOBILE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_USER__USER_R__3B40CD36" Association="Self.FK__ADM_USER__USER_R__3B40CD36">
+            <End Role="ADM_ROL" EntitySet="ADM_ROL" />
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_ICMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADM_ACTIVITY">
+          <Key>
+            <PropertyRef Name="ACT_ID" />
+          </Key>
+          <Property Name="ACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACT_CONT_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACT_USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACT_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACT_DATE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_ACTIV__ACT_C__42E1EEFE" FromRole="ADM_ACTIVITY" ToRole="ADM_CONTAINER" />
+          <NavigationProperty Name="ADM_USER" Relationship="Self.FK__ADM_ACTIV__ACT_U__43D61337" FromRole="ADM_ACTIVITY" ToRole="ADM_USER" />
+        </EntityType>
+        <EntityType Name="ADM_CONTAINER">
+          <Key>
+            <PropertyRef Name="CONT_ID" />
+          </Key>
+          <Property Name="CONT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONT_CODE" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CONT_SHIP_ID" Type="Int32" Nullable="false" />
+          <Property Name="CONT_USER_ID" Type="Int32" />
+          <Property Name="CONT_AMOUNT_ITEM" Type="Int32" />
+          <Property Name="CONT_GROUP_ITEM" Type="Int32" />
+          <Property Name="CONT_WEIGHT" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="CONT_PREC_ADUANA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONT_PREC_LINE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONT_PREC_ITK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONT_PREC_CUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONT_OBS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CONT_STATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CONT_STATE_INSPECTION" Type="Int32" />
+          <Property Name="CONT_STATE_DETECTION" Type="Int32" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_ACTIVITY" Relationship="Self.FK__ADM_ACTIV__ACT_C__42E1EEFE" FromRole="ADM_CONTAINER" ToRole="ADM_ACTIVITY" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_CONTA__CONT___0C85DE4D" FromRole="ADM_CONTAINER" ToRole="ADM_SHIPMENT" />
+          <NavigationProperty Name="ADM_DISTRIBUTION_PALET" Relationship="Self.FK__ADM_DISTR__DPAL___31B762FC" FromRole="ADM_CONTAINER" ToRole="ADM_DISTRIBUTION_PALET" />
+          <NavigationProperty Name="ADM_NOTIFICATION" Relationship="Self.FK__ADM_NOTIF__NOT_C__4C6B5938" FromRole="ADM_CONTAINER" ToRole="ADM_NOTIFICATION" />
+          <NavigationProperty Name="ADM_OBSERVATION" Relationship="Self.FK__ADM_OBSER__OBS_C__2A164134" FromRole="ADM_CONTAINER" ToRole="ADM_OBSERVATION" />
+          <NavigationProperty Name="ADM_PHOTO" Relationship="Self.FK__ADM_PHOTO__PHO_C__22751F6C" FromRole="ADM_CONTAINER" ToRole="ADM_PHOTO" />
+        </EntityType>
+        <EntityType Name="ADM_CONTAINER_TYPE">
+          <Key>
+            <PropertyRef Name="CONTY_ID" />
+          </Key>
+          <Property Name="CONTY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONTY_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___7A672E12" FromRole="ADM_CONTAINER_TYPE" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUS_ID" />
+          </Key>
+          <Property Name="CUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUS_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUS_RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CUS_PHONE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CUS_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_REPORT_OBSERVATION" Relationship="Self.FK__ADM_REPOR__RPTOB__5CA1C101" FromRole="ADM_CUSTOMER" ToRole="ADM_REPORT_OBSERVATION" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___70DDC3D8" FromRole="ADM_CUSTOMER" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_DISTRIBUTION">
+          <Key>
+            <PropertyRef Name="DIS_ID" />
+          </Key>
+          <Property Name="DIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIS_SHIP_ID" Type="Int32" Nullable="false" />
+          <Property Name="DIS_LOTE_ID" Type="Int32" Nullable="false" />
+          <Property Name="DIS_AMOUNT_TOTAL" Type="Int32" Nullable="false" />
+          <Property Name="DIS_WEIGHT_SHIPMENT" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_LOTE" Relationship="Self.FK__ADM_DISTR__DIS_L__04E4BC85" FromRole="ADM_DISTRIBUTION" ToRole="ADM_LOTE" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_DISTR__DIS_S__03F0984C" FromRole="ADM_DISTRIBUTION" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_DISTRIBUTION_PALET">
+          <Key>
+            <PropertyRef Name="DPAL_ID" />
+          </Key>
+          <Property Name="DPAL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DPAL_CONT_ID" Type="Int32" Nullable="false" />
+          <Property Name="DPAL_ITEM_NRO" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DPAL_POSITION" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DPAL_LOTE_CODE" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DPAL_CODE_PALETA" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DPAL_ITEM_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DPAL_ITEM_PHOTO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DPAL_OBS_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_DISTR__DPAL___31B762FC" FromRole="ADM_DISTRIBUTION_PALET" ToRole="ADM_CONTAINER" />
+        </EntityType>
+        <EntityType Name="ADM_ITEM_TYPE">
+          <Key>
+            <PropertyRef Name="ITEMTY_ID" />
+          </Key>
+          <Property Name="ITEMTY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ITEMTY_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ITEMTY_UNIT_WEIGHT" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="ITEMTY_UNIT_MEASURE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_LOTE" Relationship="Self.FK__ADM_LOTE__LOTE_I__693CA210" FromRole="ADM_ITEM_TYPE" ToRole="ADM_LOTE" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___797309D9" FromRole="ADM_ITEM_TYPE" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_LOTE">
+          <Key>
+            <PropertyRef Name="LOTE_ID" />
+          </Key>
+          <Property Name="LOTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOTE_CODE" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOTE_AMOUNT_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="LOTE_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LOTE_ITEMTY_ID" Type="Int32" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_DISTRIBUTION" Relationship="Self.FK__ADM_DISTR__DIS_L__04E4BC85" FromRole="ADM_LOTE" ToRole="ADM_DISTRIBUTION" />
+          <NavigationProperty Name="ADM_ITEM_TYPE" Relationship="Self.FK__ADM_LOTE__LOTE_I__693CA210" FromRole="ADM_LOTE" ToRole="ADM_ITEM_TYPE" />
+        </EntityType>
+        <EntityType Name="ADM_NAVE">
+          <Key>
+            <PropertyRef Name="NAV_ID" />
+          </Key>
+          <Property Name="NAV_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAV_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___72C60C4A" FromRole="ADM_NAVE" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_NOTIFICATION">
+          <Key>
+            <PropertyRef Name="NOT_ID" />
+          </Key>
+          <Property Name="NOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOT_USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="NOT_CONT_ID" Type="Int32" Nullable="false" />
+          <Property Name="NOT_DESCRIPTION" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOT_ID_PHONE" Type="Int32" Nullable="false" />
+          <Property Name="NOT_ACT_AUTHORIZATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOT_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_NOTIF__NOT_C__4C6B5938" FromRole="ADM_NOTIFICATION" ToRole="ADM_CONTAINER" />
+          <NavigationProperty Name="ADM_USER" Relationship="Self.FK__ADM_NOTIF__NOT_U__4B7734FF" FromRole="ADM_NOTIFICATION" ToRole="ADM_USER" />
+        </EntityType>
+        <EntityType Name="ADM_OBSERVATION">
+          <Key>
+            <PropertyRef Name="OBS_ID" />
+          </Key>
+          <Property Name="OBS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OBS_CONT_ID" Type="Int32" Nullable="false" />
+          <Property Name="OBS_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OBS_PHOTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_OBSER__OBS_C__2A164134" FromRole="ADM_OBSERVATION" ToRole="ADM_CONTAINER" />
+        </EntityType>
+        <EntityType Name="ADM_PHOTO">
+          <Key>
+            <PropertyRef Name="PHO_ID" />
+          </Key>
+          <Property Name="PHO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PHO_PHOTYPE_ID" Type="Int32" Nullable="false" />
+          <Property Name="PHO_CONT_ID" Type="Int32" Nullable="false" />
+          <Property Name="PHO_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHO_PATH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_PHOTO__PHO_C__22751F6C" FromRole="ADM_PHOTO" ToRole="ADM_CONTAINER" />
+          <NavigationProperty Name="ADM_PHOTO_TYPE" Relationship="Self.FK__ADM_PHOTO__PHO_P__2180FB33" FromRole="ADM_PHOTO" ToRole="ADM_PHOTO_TYPE" />
+        </EntityType>
+        <EntityType Name="ADM_PHOTO_TYPE">
+          <Key>
+            <PropertyRef Name="PHOTYPE_ID" />
+          </Key>
+          <Property Name="PHOTYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PHOTYPE_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_PHOTO" Relationship="Self.FK__ADM_PHOTO__PHO_P__2180FB33" FromRole="ADM_PHOTO_TYPE" ToRole="ADM_PHOTO" />
+        </EntityType>
+        <EntityType Name="ADM_PORT_DISCHARGE">
+          <Key>
+            <PropertyRef Name="PORTD_ID" />
+          </Key>
+          <Property Name="PORTD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PORTD_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___76969D2E" FromRole="ADM_PORT_DISCHARGE" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_PORT_LOAD">
+          <Key>
+            <PropertyRef Name="PORTL_ID" />
+          </Key>
+          <Property Name="PORTL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PORTL_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___75A278F5" FromRole="ADM_PORT_LOAD" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_PRODUCER">
+          <Key>
+            <PropertyRef Name="PROD_ID" />
+          </Key>
+          <Property Name="PROD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROD_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___778AC167" FromRole="ADM_PRODUCER" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_PRODUCT">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRO_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___787EE5A0" FromRole="ADM_PRODUCT" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_REPORT_OBSERVATION">
+          <Key>
+            <PropertyRef Name="RPTOBS_ID" />
+          </Key>
+          <Property Name="RPTOBS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RPTOBS_ID_CUS" Type="Int32" Nullable="false" />
+          <Property Name="RPTOBS_ID_SHIP" Type="Int32" Nullable="false" />
+          <Property Name="RPTOBS_OBSERVATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CUSTOMER" Relationship="Self.FK__ADM_REPOR__RPTOB__5CA1C101" FromRole="ADM_REPORT_OBSERVATION" ToRole="ADM_CUSTOMER" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_REPOR__RPTOB__5D95E53A" FromRole="ADM_REPORT_OBSERVATION" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_USER" Relationship="Self.FK__ADM_USER__USER_R__3B40CD36" FromRole="ADM_ROL" ToRole="ADM_USER" />
+        </EntityType>
+        <EntityType Name="ADM_RPTS_ITK">
+          <Key>
+            <PropertyRef Name="RPTSI_ID" />
+          </Key>
+          <Property Name="RPTSI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RPTSI_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___73BA3083" FromRole="ADM_RPTS_ITK" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_RPTS_WAREHOUSE">
+          <Key>
+            <PropertyRef Name="RPTSW_ID" />
+          </Key>
+          <Property Name="RPTSW_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RPTSW_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___74AE54BC" FromRole="ADM_RPTS_WAREHOUSE" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_SHIPMENT">
+          <Key>
+            <PropertyRef Name="SHIP_ID" />
+          </Key>
+          <Property Name="SHIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHIP_CODE" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SHIP_CUS_ID" Type="Int32" />
+          <Property Name="SHIP_SHIPPER_ID" Type="Int32" />
+          <Property Name="SHIP_NAV_ID" Type="Int32" />
+          <Property Name="SHIP_RPTSI_ID" Type="Int32" />
+          <Property Name="SHIP_RPTSW_ID" Type="Int32" />
+          <Property Name="SHIP_PORTL_ID" Type="Int32" />
+          <Property Name="SHIP_PORTD_ID" Type="Int32" />
+          <Property Name="SHIP_PROD_ID" Type="Int32" />
+          <Property Name="SHIP_PRO_ID" Type="Int32" />
+          <Property Name="SHIP_ITEMTY_ID" Type="Int32" />
+          <Property Name="SHIP_CONTY_ID" Type="Int32" />
+          <Property Name="SHIP_RPTS_CLIENT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_NRO_PER" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_BOOKING" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_BL" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_DATE_SCHEDULED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SHIP_TOTAL_ITEMS" Type="Int32" Nullable="false" />
+          <Property Name="SHIP_AMOUNT_CONTAINER" Type="Int32" Nullable="false" />
+          <Property Name="SHIP_VESSEL" Type="Int32" />
+          <Property Name="SHIP_REFERENCE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_STATE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SHIP_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_OBS_GENERAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_OBS_REPORT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_CONTAINER" Relationship="Self.FK__ADM_CONTA__CONT___0C85DE4D" FromRole="ADM_SHIPMENT" ToRole="ADM_CONTAINER" />
+          <NavigationProperty Name="ADM_CONTAINER_TYPE" Relationship="Self.FK__ADM_SHIPM__SHIP___7A672E12" FromRole="ADM_SHIPMENT" ToRole="ADM_CONTAINER_TYPE" />
+          <NavigationProperty Name="ADM_CUSTOMER" Relationship="Self.FK__ADM_SHIPM__SHIP___70DDC3D8" FromRole="ADM_SHIPMENT" ToRole="ADM_CUSTOMER" />
+          <NavigationProperty Name="ADM_DISTRIBUTION" Relationship="Self.FK__ADM_DISTR__DIS_S__03F0984C" FromRole="ADM_SHIPMENT" ToRole="ADM_DISTRIBUTION" />
+          <NavigationProperty Name="ADM_ITEM_TYPE" Relationship="Self.FK__ADM_SHIPM__SHIP___797309D9" FromRole="ADM_SHIPMENT" ToRole="ADM_ITEM_TYPE" />
+          <NavigationProperty Name="ADM_NAVE" Relationship="Self.FK__ADM_SHIPM__SHIP___72C60C4A" FromRole="ADM_SHIPMENT" ToRole="ADM_NAVE" />
+          <NavigationProperty Name="ADM_PORT_DISCHARGE" Relationship="Self.FK__ADM_SHIPM__SHIP___76969D2E" FromRole="ADM_SHIPMENT" ToRole="ADM_PORT_DISCHARGE" />
+          <NavigationProperty Name="ADM_PORT_LOAD" Relationship="Self.FK__ADM_SHIPM__SHIP___75A278F5" FromRole="ADM_SHIPMENT" ToRole="ADM_PORT_LOAD" />
+          <NavigationProperty Name="ADM_PRODUCER" Relationship="Self.FK__ADM_SHIPM__SHIP___778AC167" FromRole="ADM_SHIPMENT" ToRole="ADM_PRODUCER" />
+          <NavigationProperty Name="ADM_PRODUCT" Relationship="Self.FK__ADM_SHIPM__SHIP___787EE5A0" FromRole="ADM_SHIPMENT" ToRole="ADM_PRODUCT" />
+          <NavigationProperty Name="ADM_REPORT_OBSERVATION" Relationship="Self.FK__ADM_REPOR__RPTOB__5D95E53A" FromRole="ADM_SHIPMENT" ToRole="ADM_REPORT_OBSERVATION" />
+          <NavigationProperty Name="ADM_RPTS_ITK" Relationship="Self.FK__ADM_SHIPM__SHIP___73BA3083" FromRole="ADM_SHIPMENT" ToRole="ADM_RPTS_ITK" />
+          <NavigationProperty Name="ADM_RPTS_WAREHOUSE" Relationship="Self.FK__ADM_SHIPM__SHIP___74AE54BC" FromRole="ADM_SHIPMENT" ToRole="ADM_RPTS_WAREHOUSE" />
+          <NavigationProperty Name="ADM_SHIPPER" Relationship="Self.FK__ADM_SHIPM__SHIP___71D1E811" FromRole="ADM_SHIPMENT" ToRole="ADM_SHIPPER" />
+        </EntityType>
+        <EntityType Name="ADM_SHIPPER">
+          <Key>
+            <PropertyRef Name="SHIPPER_ID" />
+          </Key>
+          <Property Name="SHIPPER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHIPPER_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_SHIPMENT" Relationship="Self.FK__ADM_SHIPM__SHIP___71D1E811" FromRole="ADM_SHIPPER" ToRole="ADM_SHIPMENT" />
+        </EntityType>
+        <EntityType Name="ADM_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_PASSWORD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="USER_DNI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="USER_BIRTHDATE" Type="DateTime" Precision="0" />
+          <Property Name="USER_MOB_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="USER_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="USER_TOKEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="USER_ROL_ID" Type="Int32" Nullable="false" />
+          <Property Name="ISACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_ACTIVITY" Relationship="Self.FK__ADM_ACTIV__ACT_U__43D61337" FromRole="ADM_USER" ToRole="ADM_ACTIVITY" />
+          <NavigationProperty Name="ADM_NOTIFICATION" Relationship="Self.FK__ADM_NOTIF__NOT_U__4B7734FF" FromRole="ADM_USER" ToRole="ADM_NOTIFICATION" />
+          <NavigationProperty Name="ADM_ROL" Relationship="Self.FK__ADM_USER__USER_R__3B40CD36" FromRole="ADM_USER" ToRole="ADM_ROL" />
+          <NavigationProperty Name="ADM_USER_MOBILE" Relationship="Self.FK__ADM_USER___UMOB___55009F39" FromRole="ADM_USER" ToRole="ADM_USER_MOBILE" />
+        </EntityType>
+        <EntityType Name="ADM_USER_MOBILE">
+          <Key>
+            <PropertyRef Name="UMOB_ID" />
+          </Key>
+          <Property Name="UMOB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UMOB_USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="UMOB_TOKEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UMOB_ID_PHONE" Type="Int32" />
+          <Property Name="UMOB_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AUD_DATE_REGISTERED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AUD_DATE_LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="AUD_USERID_REGISTERED" Type="Int32" />
+          <Property Name="AUD_USERID_LASTUPDATED" Type="Int32" />
+          <NavigationProperty Name="ADM_USER" Relationship="Self.FK__ADM_USER___UMOB___55009F39" FromRole="ADM_USER_MOBILE" ToRole="ADM_USER" />
+        </EntityType>
+        <Association Name="FK__ADM_ACTIV__ACT_C__42E1EEFE">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_ACTIVITY" Type="Self.ADM_ACTIVITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_ACTIVITY">
+              <PropertyRef Name="ACT_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_ACTIV__ACT_U__43D61337">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_ACTIVITY" Type="Self.ADM_ACTIVITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_ACTIVITY">
+              <PropertyRef Name="ACT_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_CONTA__CONT___0C85DE4D">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_SHIP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DPAL___31B762FC">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION_PALET" Type="Self.ADM_DISTRIBUTION_PALET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION_PALET">
+              <PropertyRef Name="DPAL_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_NOTIF__NOT_C__4C6B5938">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_NOTIFICATION" Type="Self.ADM_NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_NOTIFICATION">
+              <PropertyRef Name="NOT_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_OBSER__OBS_C__2A164134">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_OBSERVATION" Type="Self.ADM_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_OBSERVATION">
+              <PropertyRef Name="OBS_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_PHOTO__PHO_C__22751F6C">
+          <End Role="ADM_CONTAINER" Type="Self.ADM_CONTAINER" Multiplicity="1" />
+          <End Role="ADM_PHOTO" Type="Self.ADM_PHOTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="ADM_PHOTO">
+              <PropertyRef Name="PHO_CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___7A672E12">
+          <End Role="ADM_CONTAINER_TYPE" Type="Self.ADM_CONTAINER_TYPE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CONTAINER_TYPE">
+              <PropertyRef Name="CONTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_CONTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_REPOR__RPTOB__5CA1C101">
+          <End Role="ADM_CUSTOMER" Type="Self.ADM_CUSTOMER" Multiplicity="1" />
+          <End Role="ADM_REPORT_OBSERVATION" Type="Self.ADM_REPORT_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CUSTOMER">
+              <PropertyRef Name="CUS_ID" />
+            </Principal>
+            <Dependent Role="ADM_REPORT_OBSERVATION">
+              <PropertyRef Name="RPTOBS_ID_CUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___70DDC3D8">
+          <End Role="ADM_CUSTOMER" Type="Self.ADM_CUSTOMER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_CUSTOMER">
+              <PropertyRef Name="CUS_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_CUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DIS_L__04E4BC85">
+          <End Role="ADM_LOTE" Type="Self.ADM_LOTE" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION" Type="Self.ADM_DISTRIBUTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_LOTE">
+              <PropertyRef Name="LOTE_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION">
+              <PropertyRef Name="DIS_LOTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_DISTR__DIS_S__03F0984C">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_DISTRIBUTION" Type="Self.ADM_DISTRIBUTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_DISTRIBUTION">
+              <PropertyRef Name="DIS_SHIP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_LOTE__LOTE_I__693CA210">
+          <End Role="ADM_ITEM_TYPE" Type="Self.ADM_ITEM_TYPE" Multiplicity="1" />
+          <End Role="ADM_LOTE" Type="Self.ADM_LOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ITEM_TYPE">
+              <PropertyRef Name="ITEMTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_LOTE">
+              <PropertyRef Name="LOTE_ITEMTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___797309D9">
+          <End Role="ADM_ITEM_TYPE" Type="Self.ADM_ITEM_TYPE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ITEM_TYPE">
+              <PropertyRef Name="ITEMTY_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ITEMTY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___72C60C4A">
+          <End Role="ADM_NAVE" Type="Self.ADM_NAVE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_NAVE">
+              <PropertyRef Name="NAV_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_NAV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_NOTIF__NOT_U__4B7734FF">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_NOTIFICATION" Type="Self.ADM_NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_NOTIFICATION">
+              <PropertyRef Name="NOT_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_PHOTO__PHO_P__2180FB33">
+          <End Role="ADM_PHOTO_TYPE" Type="Self.ADM_PHOTO_TYPE" Multiplicity="1" />
+          <End Role="ADM_PHOTO" Type="Self.ADM_PHOTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PHOTO_TYPE">
+              <PropertyRef Name="PHOTYPE_ID" />
+            </Principal>
+            <Dependent Role="ADM_PHOTO">
+              <PropertyRef Name="PHO_PHOTYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___76969D2E">
+          <End Role="ADM_PORT_DISCHARGE" Type="Self.ADM_PORT_DISCHARGE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PORT_DISCHARGE">
+              <PropertyRef Name="PORTD_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PORTD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___75A278F5">
+          <End Role="ADM_PORT_LOAD" Type="Self.ADM_PORT_LOAD" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PORT_LOAD">
+              <PropertyRef Name="PORTL_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PORTL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___778AC167">
+          <End Role="ADM_PRODUCER" Type="Self.ADM_PRODUCER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PRODUCER">
+              <PropertyRef Name="PROD_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PROD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___787EE5A0">
+          <End Role="ADM_PRODUCT" Type="Self.ADM_PRODUCT" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_PRODUCT">
+              <PropertyRef Name="PRO_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_PRO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_REPOR__RPTOB__5D95E53A">
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="1" />
+          <End Role="ADM_REPORT_OBSERVATION" Type="Self.ADM_REPORT_OBSERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_ID" />
+            </Principal>
+            <Dependent Role="ADM_REPORT_OBSERVATION">
+              <PropertyRef Name="RPTOBS_ID_SHIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_USER__USER_R__3B40CD36">
+          <End Role="ADM_ROL" Type="Self.ADM_ROL" Multiplicity="1" />
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_ROL">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="ADM_USER">
+              <PropertyRef Name="USER_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___73BA3083">
+          <End Role="ADM_RPTS_ITK" Type="Self.ADM_RPTS_ITK" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_RPTS_ITK">
+              <PropertyRef Name="RPTSI_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_RPTSI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___74AE54BC">
+          <End Role="ADM_RPTS_WAREHOUSE" Type="Self.ADM_RPTS_WAREHOUSE" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_RPTS_WAREHOUSE">
+              <PropertyRef Name="RPTSW_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_RPTSW_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_SHIPM__SHIP___71D1E811">
+          <End Role="ADM_SHIPPER" Type="Self.ADM_SHIPPER" Multiplicity="0..1" />
+          <End Role="ADM_SHIPMENT" Type="Self.ADM_SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_SHIPPER">
+              <PropertyRef Name="SHIPPER_ID" />
+            </Principal>
+            <Dependent Role="ADM_SHIPMENT">
+              <PropertyRef Name="SHIP_SHIPPER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADM_USER___UMOB___55009F39">
+          <End Role="ADM_USER" Type="Self.ADM_USER" Multiplicity="1" />
+          <End Role="ADM_USER_MOBILE" Type="Self.ADM_USER_MOBILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADM_USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADM_USER_MOBILE">
+              <PropertyRef Name="UMOB_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_ICMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADM_ACTIVITY" EntityType="Self.ADM_ACTIVITY" />
+          <EntitySet Name="ADM_CONTAINER" EntityType="Self.ADM_CONTAINER" />
+          <EntitySet Name="ADM_CONTAINER_TYPE" EntityType="Self.ADM_CONTAINER_TYPE" />
+          <EntitySet Name="ADM_CUSTOMER" EntityType="Self.ADM_CUSTOMER" />
+          <EntitySet Name="ADM_DISTRIBUTION" EntityType="Self.ADM_DISTRIBUTION" />
+          <EntitySet Name="ADM_DISTRIBUTION_PALET" EntityType="Self.ADM_DISTRIBUTION_PALET" />
+          <EntitySet Name="ADM_ITEM_TYPE" EntityType="Self.ADM_ITEM_TYPE" />
+          <EntitySet Name="ADM_LOTE" EntityType="Self.ADM_LOTE" />
+          <EntitySet Name="ADM_NAVE" EntityType="Self.ADM_NAVE" />
+          <EntitySet Name="ADM_NOTIFICATION" EntityType="Self.ADM_NOTIFICATION" />
+          <EntitySet Name="ADM_OBSERVATION" EntityType="Self.ADM_OBSERVATION" />
+          <EntitySet Name="ADM_PHOTO" EntityType="Self.ADM_PHOTO" />
+          <EntitySet Name="ADM_PHOTO_TYPE" EntityType="Self.ADM_PHOTO_TYPE" />
+          <EntitySet Name="ADM_PORT_DISCHARGE" EntityType="Self.ADM_PORT_DISCHARGE" />
+          <EntitySet Name="ADM_PORT_LOAD" EntityType="Self.ADM_PORT_LOAD" />
+          <EntitySet Name="ADM_PRODUCER" EntityType="Self.ADM_PRODUCER" />
+          <EntitySet Name="ADM_PRODUCT" EntityType="Self.ADM_PRODUCT" />
+          <EntitySet Name="ADM_REPORT_OBSERVATION" EntityType="Self.ADM_REPORT_OBSERVATION" />
+          <EntitySet Name="ADM_ROL" EntityType="Self.ADM_ROL" />
+          <EntitySet Name="ADM_RPTS_ITK" EntityType="Self.ADM_RPTS_ITK" />
+          <EntitySet Name="ADM_RPTS_WAREHOUSE" EntityType="Self.ADM_RPTS_WAREHOUSE" />
+          <EntitySet Name="ADM_SHIPMENT" EntityType="Self.ADM_SHIPMENT" />
+          <EntitySet Name="ADM_SHIPPER" EntityType="Self.ADM_SHIPPER" />
+          <EntitySet Name="ADM_USER" EntityType="Self.ADM_USER" />
+          <EntitySet Name="ADM_USER_MOBILE" EntityType="Self.ADM_USER_MOBILE" />
+          <AssociationSet Name="FK__ADM_ACTIV__ACT_C__42E1EEFE" Association="Self.FK__ADM_ACTIV__ACT_C__42E1EEFE">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_ACTIVITY" EntitySet="ADM_ACTIVITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_ACTIV__ACT_U__43D61337" Association="Self.FK__ADM_ACTIV__ACT_U__43D61337">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_ACTIVITY" EntitySet="ADM_ACTIVITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_CONTA__CONT___0C85DE4D" Association="Self.FK__ADM_CONTA__CONT___0C85DE4D">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DPAL___31B762FC" Association="Self.FK__ADM_DISTR__DPAL___31B762FC">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_DISTRIBUTION_PALET" EntitySet="ADM_DISTRIBUTION_PALET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_NOTIF__NOT_C__4C6B5938" Association="Self.FK__ADM_NOTIF__NOT_C__4C6B5938">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_NOTIFICATION" EntitySet="ADM_NOTIFICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_OBSER__OBS_C__2A164134" Association="Self.FK__ADM_OBSER__OBS_C__2A164134">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_OBSERVATION" EntitySet="ADM_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_PHOTO__PHO_C__22751F6C" Association="Self.FK__ADM_PHOTO__PHO_C__22751F6C">
+            <End Role="ADM_CONTAINER" EntitySet="ADM_CONTAINER" />
+            <End Role="ADM_PHOTO" EntitySet="ADM_PHOTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___7A672E12" Association="Self.FK__ADM_SHIPM__SHIP___7A672E12">
+            <End Role="ADM_CONTAINER_TYPE" EntitySet="ADM_CONTAINER_TYPE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_REPOR__RPTOB__5CA1C101" Association="Self.FK__ADM_REPOR__RPTOB__5CA1C101">
+            <End Role="ADM_CUSTOMER" EntitySet="ADM_CUSTOMER" />
+            <End Role="ADM_REPORT_OBSERVATION" EntitySet="ADM_REPORT_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___70DDC3D8" Association="Self.FK__ADM_SHIPM__SHIP___70DDC3D8">
+            <End Role="ADM_CUSTOMER" EntitySet="ADM_CUSTOMER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DIS_L__04E4BC85" Association="Self.FK__ADM_DISTR__DIS_L__04E4BC85">
+            <End Role="ADM_LOTE" EntitySet="ADM_LOTE" />
+            <End Role="ADM_DISTRIBUTION" EntitySet="ADM_DISTRIBUTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_DISTR__DIS_S__03F0984C" Association="Self.FK__ADM_DISTR__DIS_S__03F0984C">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_DISTRIBUTION" EntitySet="ADM_DISTRIBUTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_LOTE__LOTE_I__693CA210" Association="Self.FK__ADM_LOTE__LOTE_I__693CA210">
+            <End Role="ADM_ITEM_TYPE" EntitySet="ADM_ITEM_TYPE" />
+            <End Role="ADM_LOTE" EntitySet="ADM_LOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___797309D9" Association="Self.FK__ADM_SHIPM__SHIP___797309D9">
+            <End Role="ADM_ITEM_TYPE" EntitySet="ADM_ITEM_TYPE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___72C60C4A" Association="Self.FK__ADM_SHIPM__SHIP___72C60C4A">
+            <End Role="ADM_NAVE" EntitySet="ADM_NAVE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_NOTIF__NOT_U__4B7734FF" Association="Self.FK__ADM_NOTIF__NOT_U__4B7734FF">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_NOTIFICATION" EntitySet="ADM_NOTIFICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_PHOTO__PHO_P__2180FB33" Association="Self.FK__ADM_PHOTO__PHO_P__2180FB33">
+            <End Role="ADM_PHOTO_TYPE" EntitySet="ADM_PHOTO_TYPE" />
+            <End Role="ADM_PHOTO" EntitySet="ADM_PHOTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___76969D2E" Association="Self.FK__ADM_SHIPM__SHIP___76969D2E">
+            <End Role="ADM_PORT_DISCHARGE" EntitySet="ADM_PORT_DISCHARGE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___75A278F5" Association="Self.FK__ADM_SHIPM__SHIP___75A278F5">
+            <End Role="ADM_PORT_LOAD" EntitySet="ADM_PORT_LOAD" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___778AC167" Association="Self.FK__ADM_SHIPM__SHIP___778AC167">
+            <End Role="ADM_PRODUCER" EntitySet="ADM_PRODUCER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___787EE5A0" Association="Self.FK__ADM_SHIPM__SHIP___787EE5A0">
+            <End Role="ADM_PRODUCT" EntitySet="ADM_PRODUCT" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_REPOR__RPTOB__5D95E53A" Association="Self.FK__ADM_REPOR__RPTOB__5D95E53A">
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+            <End Role="ADM_REPORT_OBSERVATION" EntitySet="ADM_REPORT_OBSERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_USER__USER_R__3B40CD36" Association="Self.FK__ADM_USER__USER_R__3B40CD36">
+            <End Role="ADM_ROL" EntitySet="ADM_ROL" />
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___73BA3083" Association="Self.FK__ADM_SHIPM__SHIP___73BA3083">
+            <End Role="ADM_RPTS_ITK" EntitySet="ADM_RPTS_ITK" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___74AE54BC" Association="Self.FK__ADM_SHIPM__SHIP___74AE54BC">
+            <End Role="ADM_RPTS_WAREHOUSE" EntitySet="ADM_RPTS_WAREHOUSE" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_SHIPM__SHIP___71D1E811" Association="Self.FK__ADM_SHIPM__SHIP___71D1E811">
+            <End Role="ADM_SHIPPER" EntitySet="ADM_SHIPPER" />
+            <End Role="ADM_SHIPMENT" EntitySet="ADM_SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADM_USER___UMOB___55009F39" Association="Self.FK__ADM_USER___UMOB___55009F39">
+            <End Role="ADM_USER" EntitySet="ADM_USER" />
+            <End Role="ADM_USER_MOBILE" EntitySet="ADM_USER_MOBILE" />
+          </AssociationSet>
+          <FunctionImport Name="WEB_GetAllConfigurationByTableName">
+            <Parameter Name="TABLE_NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetAllContainerTypes" ReturnType="Collection(DB_ICMModel.WEB_GetAllContainerTypes_Result)" />
+          <FunctionImport Name="WEB_GetAllCustomers" ReturnType="Collection(DB_ICMModel.WEB_GetAllCustomers_Result)" />
+          <FunctionImport Name="WEB_GetAllDropDownListForShipmentDetails" ReturnType="Collection(String)" />
+          <FunctionImport Name="WEB_GetAllItemTypes" ReturnType="Collection(DB_ICMModel.WEB_GetAllItemTypes_Result)" />
+          <FunctionImport Name="WEB_GetAllReportShipmentsByCustomer" ReturnType="Collection(DB_ICMModel.WEB_GetAllReportShipmentsByCustomer_Result)" />
+          <FunctionImport Name="WEB_GetAllRoles" ReturnType="Collection(DB_ICMModel.WEB_GetAllRoles_Result)" />
+          <FunctionImport Name="WEB_GetAllShipments" ReturnType="Collection(DB_ICMModel.WEB_GetAllShipments_Result)" />
+          <FunctionImport Name="WEB_GetAllUsers" ReturnType="Collection(DB_ICMModel.WEB_GetAllUsers_Result)" />
+          <FunctionImport Name="WEB_GetConfigurationById">
+            <Parameter Name="CON_ID" Mode="In" Type="Int32" />
+            <Parameter Name="TB_NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetContainersByShipmentId" ReturnType="Collection(DB_ICMModel.WEB_GetContainersByShipmentId_Result)">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetDetailsByShipmentCode" ReturnType="Collection(DB_ICMModel.WEB_GetDetailsByShipmentCode_Result)">
+            <Parameter Name="SHIP_CODE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetDistributionLoteById" ReturnType="Collection(DB_ICMModel.WEB_GetDistributionLoteById_Result)">
+            <Parameter Name="LOTE_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetExistsShipmentCode" ReturnType="Collection(Int32)">
+            <Parameter Name="SHIP_CODE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetInspectionReportByCustomerIdAndNroPer" ReturnType="Collection(DB_ICMModel.WEB_GetInspectionReportByCustomerIdAndNroPer_Result)">
+            <Parameter Name="SHIP_NRO_PER" Mode="In" Type="String" />
+            <Parameter Name="SHIP_CUS_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetLotesByShipmentId" ReturnType="Collection(DB_ICMModel.WEB_GetLotesByShipmentId_Result)">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetReferenceByShipmentId" ReturnType="Collection(DB_ICMModel.WEB_GetReferenceByShipmentId_Result)">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetReportObservationById" ReturnType="Collection(DB_ICMModel.WEB_GetReportObservationById_Result)">
+            <Parameter Name="RPTOBS_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetReportObservations" ReturnType="Collection(DB_ICMModel.WEB_GetReportObservations_Result)">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_CUS_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetShipmentsByDate" ReturnType="Collection(DB_ICMModel.WEB_GetShipmentsByDate_Result)">
+            <Parameter Name="SHIP_DATE_SCHEDULED_START" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetUserByEmail" ReturnType="Collection(DB_ICMModel.WEB_GetUserByEmail_Result)">
+            <Parameter Name="USER_EMAIL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetUserByEmailAndPassword" ReturnType="Collection(DB_ICMModel.WEB_GetUserByEmailAndPassword_Result)">
+            <Parameter Name="USER_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="USER_PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GetUserById" ReturnType="Collection(DB_ICMModel.WEB_GetUserById_Result)">
+            <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostDeleteConfiguration">
+            <Parameter Name="CON_ID" Mode="In" Type="Int32" />
+            <Parameter Name="TB_NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostDeleteLote">
+            <Parameter Name="LOTE_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostDeleteReportObservation">
+            <Parameter Name="RPTOBS_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostDeleteShipment">
+            <Parameter Name="SHIP_CODE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostDeleteUser">
+            <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveConfiguration">
+            <Parameter Name="CON_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CON_DESC" Mode="In" Type="String" />
+            <Parameter Name="TB_NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveContainer">
+            <Parameter Name="CONT_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CONT_CODE" Mode="In" Type="String" />
+            <Parameter Name="CONT_SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CONT_AMOUNT_ITEM" Mode="In" Type="Int32" />
+            <Parameter Name="CONT_WEIGHT" Mode="In" Type="Decimal" />
+            <Parameter Name="CONT_PREC_ADUANA" Mode="In" Type="String" />
+            <Parameter Name="CONT_PREC_LINE" Mode="In" Type="String" />
+            <Parameter Name="CONT_PREC_ITK" Mode="In" Type="String" />
+            <Parameter Name="CONT_PREC_CUS" Mode="In" Type="String" />
+            <Parameter Name="CONT_OBS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveForgetPassword">
+            <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="USER_PASSWORD_GENERATED" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveLote">
+            <Parameter Name="LOTE_ID" Mode="In" Type="Int32" />
+            <Parameter Name="LOTE_CODE" Mode="In" Type="String" />
+            <Parameter Name="LOTE_AMOUNT_ITEM" Mode="In" Type="Int32" />
+            <Parameter Name="LOTE_ITEMTY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="DIS_SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="DIS_AMOUNT_TOTAL" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveReportObservation">
+            <Parameter Name="RPTOBS_ID" Mode="In" Type="Int32" />
+            <Parameter Name="RPTOBS_OBSERVATION" Mode="In" Type="String" />
+            <Parameter Name="RPTOBS_ID_CUS" Mode="In" Type="Int32" />
+            <Parameter Name="RPTOBS_ID_SHIP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveShipment">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_CODE" Mode="In" Type="String" />
+            <Parameter Name="CUS_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_TOTAL_ITEMS" Mode="In" Type="String" />
+            <Parameter Name="ITEMTY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CONTY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_AMOUNT_CONTAINER" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_DATE_SCHEDULED" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveShipmentDetails">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_NRO_PER" Mode="In" Type="String" />
+            <Parameter Name="SHIP_PROD_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_DATE_SCHEDULED" Mode="In" Type="DateTime" />
+            <Parameter Name="SHIP_BL" Mode="In" Type="String" />
+            <Parameter Name="SHIP_RPTSW_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_TOTAL_ITEMS" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_CUS_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_SHIPPER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_PRO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_RPTSI_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_PORTD_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_NAV_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_BOOKING" Mode="In" Type="String" />
+            <Parameter Name="SHIP_RPTS_CLIENT" Mode="In" Type="String" />
+            <Parameter Name="SHIP_PORTL_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="SHIP_OBS_GENERAL" Mode="In" Type="String" />
+            <Parameter Name="SHIP_OBS_REPORT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveShipmentReference">
+            <Parameter Name="SHIP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SHIP_REFERENCE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostSaveUser">
+            <Parameter Name="USER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="USER_NAME" Mode="In" Type="String" />
+            <Parameter Name="USER_LASTNAME" Mode="In" Type="String" />
+            <Parameter Name="USER_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="USER_PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="USER_DNI" Mode="In" Type="String" />
+            <Parameter Name="USER_BIRTHDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="USER_MOB_PHONE" Mode="In" Type="String" />
+            <Parameter Name="USER_PHONE" Mode="In" Type="String" />
+            <Parameter Name="USER_ROL_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_PostValidateLoginByAccountAndPassword" ReturnType="Collection(String)">
+            <Parameter Name="USER_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="USER_PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="WEB_GetAllContainerTypes_Result">
+          <Property Type="Int32" Name="CONTY_ID" Nullable="false" />
+          <Property Type="String" Name="CONTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllCustomers_Result">
+          <Property Type="Int32" Name="CUS_ID" Nullable="false" />
+          <Property Type="String" Name="CUS_NAME" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllItemTypes_Result">
+          <Property Type="Int32" Name="ITEMTY_ID" Nullable="false" />
+          <Property Type="String" Name="ITEMTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllReportShipmentsByCustomer_Result">
+          <Property Type="Int32" Name="RPT_SHIP_ID" Nullable="false" />
+          <Property Type="Int32" Name="RPT_CUS_ID" Nullable="false" />
+          <Property Type="String" Name="RPT_SHIP_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="String" Name="RPT_SHIP_NRO_PER" Nullable="true" MaxLength="18" />
+          <Property Type="String" Name="RPT_CUS_NAME" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="RPT_SHIP_DATE_SCHEDULED" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllRoles_Result">
+          <Property Type="Int32" Name="ROL_ID" Nullable="false" />
+          <Property Type="String" Name="ROL_DESCRIPTION" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllShipments_Result">
+          <Property Type="Int32" Name="SHIP_ID" Nullable="false" />
+          <Property Type="String" Name="SHIP_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="Int32" Name="SHIP_TOTAL_ITEMS" Nullable="false" />
+          <Property Type="String" Name="ITEMTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CONTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="SHIP_AMOUNT_CONTAINER" Nullable="false" />
+          <Property Type="DateTime" Name="SHIP_DATE_SCHEDULED" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetAllUsers_Result">
+          <Property Type="Int32" Name="USER_ID" Nullable="false" />
+          <Property Type="String" Name="USER_NAME" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="USER_EMAIL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="USER_DNI" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="USER_MOB_PHONE" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="USER_ROL_DESCRIPTION" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetContainersByShipmentId_Result">
+          <Property Type="Int32" Name="CONT_ID" Nullable="false" />
+          <Property Type="Int32" Name="CONT_SHIP_ID" Nullable="false" />
+          <Property Type="String" Name="CONT_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="Int32" Name="CONT_AMOUNT_ITEM" Nullable="true" />
+          <Property Type="Decimal" Name="CONT_WEIGHT" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="CONT_STATE" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="CONT_PREC_ADUANA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONT_PREC_LINE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONT_PREC_ITK" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONT_PREC_CUS" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONT_OBS" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetDetailsByShipmentCode_Result">
+          <Property Type="Int32" Name="SHIP_ID" Nullable="false" />
+          <Property Type="Int32" Name="ITEMTY_ID" Nullable="false" />
+          <Property Type="Decimal" Name="SHIP_ITEMTY_UNIT_WEIGHT" Nullable="false" Precision="16" Scale="2" />
+          <Property Type="String" Name="SHIP_ITEMTY_UNIT_MEASURE" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="SHIP_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="Int32" Name="SHIP_TOTAL_ITEMS" Nullable="false" />
+          <Property Type="String" Name="SHIP_ITEMTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SHIP_CONTY_DESCRIPTION" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="SHIP_AMOUNT_CONTAINER" Nullable="false" />
+          <Property Type="Int32" Name="SHIP_CUS_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_SHIPPER_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_NAV_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_RPTSI_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_RPTSW_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_PORTL_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_PORTD_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_PROD_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_PRO_ID" Nullable="true" />
+          <Property Type="String" Name="SHIP_RPTS_CLIENT" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="SHIP_ITEMTY_ID" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_CONTY_ID" Nullable="true" />
+          <Property Type="String" Name="SHIP_NRO_PER" Nullable="true" MaxLength="18" />
+          <Property Type="String" Name="SHIP_BOOKING" Nullable="true" MaxLength="18" />
+          <Property Type="String" Name="SHIP_BL" Nullable="true" MaxLength="18" />
+          <Property Type="String" Name="SHIP_DATE_SCHEDULED" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="SHIP_TOTAL_ITEMS1" Nullable="false" />
+          <Property Type="Int32" Name="SHIP_AMOUNT_CONTAINER1" Nullable="false" />
+          <Property Type="Int32" Name="SHIP_VESSEL" Nullable="true" />
+          <Property Type="String" Name="SHIP_DESCRIPTION" Nullable="true" />
+          <Property Type="String" Name="SHIP_OBS_GENERAL" Nullable="true" />
+          <Property Type="String" Name="SHIP_OBS_REPORT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetDistributionLoteById_Result">
+          <Property Type="Int32" Name="DISLOTE_LOTE_ID" Nullable="false" />
+          <Property Type="String" Name="DISLOTE_LOTE_CODE" Nullable="true" MaxLength="4000" />
+          <Property Type="Int32" Name="DISLOTE_LOTE_AMOUNT_ITEM" Nullable="false" />
+          <Property Type="String" Name="DIS_ITEMTY_DESCRIPTION" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="DISLOTE_WEIGHT" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="DISLOTE_ITEMTY_UNIT_MEASURE" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetInspectionReportByCustomerIdAndNroPer_Result">
+          <Property Type="String" Name="INS_SHIPPER" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="INS_PRODUCTS" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="INS_DATE_SHIPMENT" Nullable="false" Precision="23" />
+          <Property Type="String" Name="INS_PERFORMED_BY" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="INS_REFERENCE" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="INS_IDENTIFICATION" Nullable="true" />
+          <Property Type="String" Name="INS_DATE_PRODUCTION" Nullable="false" MaxLength="34" />
+          <Property Type="Int32" Name="INS_VESSEL" Nullable="true" />
+          <Property Type="String" Name="INS_PORT_OF_LOADING" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="INS_PORT_OF_DISCHARGE" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="INS_LOT" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="String" Name="INS_DESCRIPTION" Nullable="false" MaxLength="19" />
+          <Property Type="Int32" Name="INS_SHIP_CUS_ID" Nullable="true" />
+          <Property Type="Int32" Name="INS_SHIP_ID" Nullable="false" />
+          <Property Type="String" Name="INS_SHIP_CODE" Nullable="false" MaxLength="18" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetLotesByShipmentId_Result">
+          <Property Type="Int32" Name="DIS_LOTE_ID" Nullable="false" />
+          <Property Type="String" Name="DIS_LOTE_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="Int32" Name="DIS_AMOUNT_TOTAL" Nullable="false" />
+          <Property Type="String" Name="DIS_ITEMTY_DESCRIPTION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DIS_WEIGHT" Nullable="false" MaxLength="52" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetReferenceByShipmentId_Result">
+          <Property Type="Int32" Name="SHIP_ID" Nullable="false" />
+          <Property Type="String" Name="SHIP_REFERENCE" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetReportObservationById_Result">
+          <Property Type="Int32" Name="RPTOBS_ID" Nullable="false" />
+          <Property Type="String" Name="RPTOBS_OBSERVATION" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetReportObservations_Result">
+          <Property Type="Int32" Name="RPTOBS_ID" Nullable="false" />
+          <Property Type="String" Name="RPTOBS_OBSERVATION" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetShipmentsByDate_Result">
+          <Property Type="Int32" Name="SHIP_ID" Nullable="false" />
+          <Property Type="String" Name="SHIP_CODE" Nullable="false" MaxLength="18" />
+          <Property Type="String" Name="SHIP_STATE" Nullable="true" MaxLength="6" />
+          <Property Type="Int32" Name="SHIP_DAY" Nullable="true" />
+          <Property Type="Int32" Name="SHIP_COUNT_ITEMS" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetUserByEmail_Result">
+          <Property Type="Int32" Name="USER_ID" Nullable="false" />
+          <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetUserByEmailAndPassword_Result">
+          <Property Type="Int32" Name="USER_ID" Nullable="false" />
+          <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="USER_LASTNAME" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="USER_ROL_ID" Nullable="false" />
+          <Property Type="String" Name="USER_ROL_DESCRIPTION" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="WEB_GetUserById_Result">
+          <Property Type="String" Name="USER_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="USER_LASTNAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="USER_EMAIL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="USER_PASSWORD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="USER_DNI" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="USER_BIRTHDATE" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="USER_MOB_PHONE" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="USER_PHONE" Nullable="true" MaxLength="15" />
+          <Property Type="Int32" Name="USER_ROL_ID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_ICMModelStoreContainer" CdmEntityContainer="DB_ICMEntities">
+          <EntitySetMapping Name="ADM_ACTIVITY">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_ACTIVITY">
+              <MappingFragment StoreEntitySet="ADM_ACTIVITY">
+                <ScalarProperty Name="ACT_ID" ColumnName="ACT_ID" />
+                <ScalarProperty Name="ACT_CONT_ID" ColumnName="ACT_CONT_ID" />
+                <ScalarProperty Name="ACT_USER_ID" ColumnName="ACT_USER_ID" />
+                <ScalarProperty Name="ACT_DESCRIPTION" ColumnName="ACT_DESCRIPTION" />
+                <ScalarProperty Name="ACT_DATE" ColumnName="ACT_DATE" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_CONTAINER">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_CONTAINER">
+              <MappingFragment StoreEntitySet="ADM_CONTAINER">
+                <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
+                <ScalarProperty Name="CONT_CODE" ColumnName="CONT_CODE" />
+                <ScalarProperty Name="CONT_SHIP_ID" ColumnName="CONT_SHIP_ID" />
+                <ScalarProperty Name="CONT_USER_ID" ColumnName="CONT_USER_ID" />
+                <ScalarProperty Name="CONT_AMOUNT_ITEM" ColumnName="CONT_AMOUNT_ITEM" />
+                <ScalarProperty Name="CONT_GROUP_ITEM" ColumnName="CONT_GROUP_ITEM" />
+                <ScalarProperty Name="CONT_WEIGHT" ColumnName="CONT_WEIGHT" />
+                <ScalarProperty Name="CONT_PREC_ADUANA" ColumnName="CONT_PREC_ADUANA" />
+                <ScalarProperty Name="CONT_PREC_LINE" ColumnName="CONT_PREC_LINE" />
+                <ScalarProperty Name="CONT_PREC_ITK" ColumnName="CONT_PREC_ITK" />
+                <ScalarProperty Name="CONT_PREC_CUS" ColumnName="CONT_PREC_CUS" />
+                <ScalarProperty Name="CONT_OBS" ColumnName="CONT_OBS" />
+                <ScalarProperty Name="CONT_STATE" ColumnName="CONT_STATE" />
+                <ScalarProperty Name="CONT_STATE_INSPECTION" ColumnName="CONT_STATE_INSPECTION" />
+                <ScalarProperty Name="CONT_STATE_DETECTION" ColumnName="CONT_STATE_DETECTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_CONTAINER_TYPE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_CONTAINER_TYPE">
+              <MappingFragment StoreEntitySet="ADM_CONTAINER_TYPE">
+                <ScalarProperty Name="CONTY_ID" ColumnName="CONTY_ID" />
+                <ScalarProperty Name="CONTY_DESCRIPTION" ColumnName="CONTY_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_CUSTOMER">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_CUSTOMER">
+              <MappingFragment StoreEntitySet="ADM_CUSTOMER">
+                <ScalarProperty Name="CUS_ID" ColumnName="CUS_ID" />
+                <ScalarProperty Name="CUS_NAME" ColumnName="CUS_NAME" />
+                <ScalarProperty Name="CUS_RUC" ColumnName="CUS_RUC" />
+                <ScalarProperty Name="CUS_PHONE" ColumnName="CUS_PHONE" />
+                <ScalarProperty Name="CUS_ADDRESS" ColumnName="CUS_ADDRESS" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_DISTRIBUTION">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_DISTRIBUTION">
+              <MappingFragment StoreEntitySet="ADM_DISTRIBUTION">
+                <ScalarProperty Name="DIS_ID" ColumnName="DIS_ID" />
+                <ScalarProperty Name="DIS_SHIP_ID" ColumnName="DIS_SHIP_ID" />
+                <ScalarProperty Name="DIS_LOTE_ID" ColumnName="DIS_LOTE_ID" />
+                <ScalarProperty Name="DIS_AMOUNT_TOTAL" ColumnName="DIS_AMOUNT_TOTAL" />
+                <ScalarProperty Name="DIS_WEIGHT_SHIPMENT" ColumnName="DIS_WEIGHT_SHIPMENT" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_DISTRIBUTION_PALET">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_DISTRIBUTION_PALET">
+              <MappingFragment StoreEntitySet="ADM_DISTRIBUTION_PALET">
+                <ScalarProperty Name="DPAL_ID" ColumnName="DPAL_ID" />
+                <ScalarProperty Name="DPAL_CONT_ID" ColumnName="DPAL_CONT_ID" />
+                <ScalarProperty Name="DPAL_ITEM_NRO" ColumnName="DPAL_ITEM_NRO" />
+                <ScalarProperty Name="DPAL_POSITION" ColumnName="DPAL_POSITION" />
+                <ScalarProperty Name="DPAL_LOTE_CODE" ColumnName="DPAL_LOTE_CODE" />
+                <ScalarProperty Name="DPAL_CODE_PALETA" ColumnName="DPAL_CODE_PALETA" />
+                <ScalarProperty Name="DPAL_ITEM_STATUS" ColumnName="DPAL_ITEM_STATUS" />
+                <ScalarProperty Name="DPAL_ITEM_PHOTO" ColumnName="DPAL_ITEM_PHOTO" />
+                <ScalarProperty Name="DPAL_OBS_DESCRIPTION" ColumnName="DPAL_OBS_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_ITEM_TYPE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_ITEM_TYPE">
+              <MappingFragment StoreEntitySet="ADM_ITEM_TYPE">
+                <ScalarProperty Name="ITEMTY_ID" ColumnName="ITEMTY_ID" />
+                <ScalarProperty Name="ITEMTY_DESCRIPTION" ColumnName="ITEMTY_DESCRIPTION" />
+                <ScalarProperty Name="ITEMTY_UNIT_WEIGHT" ColumnName="ITEMTY_UNIT_WEIGHT" />
+                <ScalarProperty Name="ITEMTY_UNIT_MEASURE" ColumnName="ITEMTY_UNIT_MEASURE" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_LOTE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_LOTE">
+              <MappingFragment StoreEntitySet="ADM_LOTE">
+                <ScalarProperty Name="LOTE_ID" ColumnName="LOTE_ID" />
+                <ScalarProperty Name="LOTE_CODE" ColumnName="LOTE_CODE" />
+                <ScalarProperty Name="LOTE_AMOUNT_ITEM" ColumnName="LOTE_AMOUNT_ITEM" />
+                <ScalarProperty Name="LOTE_DATE_REGISTERED" ColumnName="LOTE_DATE_REGISTERED" />
+                <ScalarProperty Name="LOTE_ITEMTY_ID" ColumnName="LOTE_ITEMTY_ID" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_NAVE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_NAVE">
+              <MappingFragment StoreEntitySet="ADM_NAVE">
+                <ScalarProperty Name="NAV_ID" ColumnName="NAV_ID" />
+                <ScalarProperty Name="NAV_DESCRIPTION" ColumnName="NAV_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_NOTIFICATION">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_NOTIFICATION">
+              <MappingFragment StoreEntitySet="ADM_NOTIFICATION">
+                <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
+                <ScalarProperty Name="NOT_USER_ID" ColumnName="NOT_USER_ID" />
+                <ScalarProperty Name="NOT_CONT_ID" ColumnName="NOT_CONT_ID" />
+                <ScalarProperty Name="NOT_DESCRIPTION" ColumnName="NOT_DESCRIPTION" />
+                <ScalarProperty Name="NOT_ID_PHONE" ColumnName="NOT_ID_PHONE" />
+                <ScalarProperty Name="NOT_ACT_AUTHORIZATION" ColumnName="NOT_ACT_AUTHORIZATION" />
+                <ScalarProperty Name="NOT_STATUS" ColumnName="NOT_STATUS" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_OBSERVATION">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_OBSERVATION">
+              <MappingFragment StoreEntitySet="ADM_OBSERVATION">
+                <ScalarProperty Name="OBS_ID" ColumnName="OBS_ID" />
+                <ScalarProperty Name="OBS_CONT_ID" ColumnName="OBS_CONT_ID" />
+                <ScalarProperty Name="OBS_DESCRIPTION" ColumnName="OBS_DESCRIPTION" />
+                <ScalarProperty Name="OBS_PHOTO" ColumnName="OBS_PHOTO" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PHOTO">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PHOTO">
+              <MappingFragment StoreEntitySet="ADM_PHOTO">
+                <ScalarProperty Name="PHO_ID" ColumnName="PHO_ID" />
+                <ScalarProperty Name="PHO_PHOTYPE_ID" ColumnName="PHO_PHOTYPE_ID" />
+                <ScalarProperty Name="PHO_CONT_ID" ColumnName="PHO_CONT_ID" />
+                <ScalarProperty Name="PHO_DESCRIPTION" ColumnName="PHO_DESCRIPTION" />
+                <ScalarProperty Name="PHO_PATH" ColumnName="PHO_PATH" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PHOTO_TYPE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PHOTO_TYPE">
+              <MappingFragment StoreEntitySet="ADM_PHOTO_TYPE">
+                <ScalarProperty Name="PHOTYPE_ID" ColumnName="PHOTYPE_ID" />
+                <ScalarProperty Name="PHOTYPE_DESCRIPTION" ColumnName="PHOTYPE_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PORT_DISCHARGE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PORT_DISCHARGE">
+              <MappingFragment StoreEntitySet="ADM_PORT_DISCHARGE">
+                <ScalarProperty Name="PORTD_ID" ColumnName="PORTD_ID" />
+                <ScalarProperty Name="PORTD_DESCRIPTION" ColumnName="PORTD_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PORT_LOAD">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PORT_LOAD">
+              <MappingFragment StoreEntitySet="ADM_PORT_LOAD">
+                <ScalarProperty Name="PORTL_ID" ColumnName="PORTL_ID" />
+                <ScalarProperty Name="PORTL_DESCRIPTION" ColumnName="PORTL_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PRODUCER">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PRODUCER">
+              <MappingFragment StoreEntitySet="ADM_PRODUCER">
+                <ScalarProperty Name="PROD_ID" ColumnName="PROD_ID" />
+                <ScalarProperty Name="PROD_DESCRIPTION" ColumnName="PROD_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_PRODUCT">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_PRODUCT">
+              <MappingFragment StoreEntitySet="ADM_PRODUCT">
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="PRO_DESCRIPTION" ColumnName="PRO_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_REPORT_OBSERVATION">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_REPORT_OBSERVATION">
+              <MappingFragment StoreEntitySet="ADM_REPORT_OBSERVATION">
+                <ScalarProperty Name="RPTOBS_ID" ColumnName="RPTOBS_ID" />
+                <ScalarProperty Name="RPTOBS_ID_CUS" ColumnName="RPTOBS_ID_CUS" />
+                <ScalarProperty Name="RPTOBS_ID_SHIP" ColumnName="RPTOBS_ID_SHIP" />
+                <ScalarProperty Name="RPTOBS_OBSERVATION" ColumnName="RPTOBS_OBSERVATION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_ROL">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_ROL">
+              <MappingFragment StoreEntitySet="ADM_ROL">
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_DESCRIPTION" ColumnName="ROL_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_RPTS_ITK">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_RPTS_ITK">
+              <MappingFragment StoreEntitySet="ADM_RPTS_ITK">
+                <ScalarProperty Name="RPTSI_ID" ColumnName="RPTSI_ID" />
+                <ScalarProperty Name="RPTSI_DESCRIPTION" ColumnName="RPTSI_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_RPTS_WAREHOUSE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_RPTS_WAREHOUSE">
+              <MappingFragment StoreEntitySet="ADM_RPTS_WAREHOUSE">
+                <ScalarProperty Name="RPTSW_ID" ColumnName="RPTSW_ID" />
+                <ScalarProperty Name="RPTSW_DESCRIPTION" ColumnName="RPTSW_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_SHIPMENT">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_SHIPMENT">
+              <MappingFragment StoreEntitySet="ADM_SHIPMENT">
+                <ScalarProperty Name="SHIP_ID" ColumnName="SHIP_ID" />
+                <ScalarProperty Name="SHIP_CODE" ColumnName="SHIP_CODE" />
+                <ScalarProperty Name="SHIP_CUS_ID" ColumnName="SHIP_CUS_ID" />
+                <ScalarProperty Name="SHIP_SHIPPER_ID" ColumnName="SHIP_SHIPPER_ID" />
+                <ScalarProperty Name="SHIP_NAV_ID" ColumnName="SHIP_NAV_ID" />
+                <ScalarProperty Name="SHIP_RPTSI_ID" ColumnName="SHIP_RPTSI_ID" />
+                <ScalarProperty Name="SHIP_RPTSW_ID" ColumnName="SHIP_RPTSW_ID" />
+                <ScalarProperty Name="SHIP_PORTL_ID" ColumnName="SHIP_PORTL_ID" />
+                <ScalarProperty Name="SHIP_PORTD_ID" ColumnName="SHIP_PORTD_ID" />
+                <ScalarProperty Name="SHIP_PROD_ID" ColumnName="SHIP_PROD_ID" />
+                <ScalarProperty Name="SHIP_PRO_ID" ColumnName="SHIP_PRO_ID" />
+                <ScalarProperty Name="SHIP_ITEMTY_ID" ColumnName="SHIP_ITEMTY_ID" />
+                <ScalarProperty Name="SHIP_CONTY_ID" ColumnName="SHIP_CONTY_ID" />
+                <ScalarProperty Name="SHIP_RPTS_CLIENT" ColumnName="SHIP_RPTS_CLIENT" />
+                <ScalarProperty Name="SHIP_NRO_PER" ColumnName="SHIP_NRO_PER" />
+                <ScalarProperty Name="SHIP_BOOKING" ColumnName="SHIP_BOOKING" />
+                <ScalarProperty Name="SHIP_BL" ColumnName="SHIP_BL" />
+                <ScalarProperty Name="SHIP_DATE_SCHEDULED" ColumnName="SHIP_DATE_SCHEDULED" />
+                <ScalarProperty Name="SHIP_TOTAL_ITEMS" ColumnName="SHIP_TOTAL_ITEMS" />
+                <ScalarProperty Name="SHIP_AMOUNT_CONTAINER" ColumnName="SHIP_AMOUNT_CONTAINER" />
+                <ScalarProperty Name="SHIP_VESSEL" ColumnName="SHIP_VESSEL" />
+                <ScalarProperty Name="SHIP_REFERENCE" ColumnName="SHIP_REFERENCE" />
+                <ScalarProperty Name="SHIP_STATE" ColumnName="SHIP_STATE" />
+                <ScalarProperty Name="SHIP_DESCRIPTION" ColumnName="SHIP_DESCRIPTION" />
+                <ScalarProperty Name="SHIP_OBS_GENERAL" ColumnName="SHIP_OBS_GENERAL" />
+                <ScalarProperty Name="SHIP_OBS_REPORT" ColumnName="SHIP_OBS_REPORT" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_SHIPPER">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_SHIPPER">
+              <MappingFragment StoreEntitySet="ADM_SHIPPER">
+                <ScalarProperty Name="SHIPPER_ID" ColumnName="SHIPPER_ID" />
+                <ScalarProperty Name="SHIPPER_DESCRIPTION" ColumnName="SHIPPER_DESCRIPTION" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_USER">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_USER">
+              <MappingFragment StoreEntitySet="ADM_USER">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_LASTNAME" ColumnName="USER_LASTNAME" />
+                <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="USER_DNI" ColumnName="USER_DNI" />
+                <ScalarProperty Name="USER_BIRTHDATE" ColumnName="USER_BIRTHDATE" />
+                <ScalarProperty Name="USER_MOB_PHONE" ColumnName="USER_MOB_PHONE" />
+                <ScalarProperty Name="USER_PHONE" ColumnName="USER_PHONE" />
+                <ScalarProperty Name="USER_TOKEN" ColumnName="USER_TOKEN" />
+                <ScalarProperty Name="USER_ROL_ID" ColumnName="USER_ROL_ID" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADM_USER_MOBILE">
+            <EntityTypeMapping TypeName="DB_ICMModel.ADM_USER_MOBILE">
+              <MappingFragment StoreEntitySet="ADM_USER_MOBILE">
+                <ScalarProperty Name="UMOB_ID" ColumnName="UMOB_ID" />
+                <ScalarProperty Name="UMOB_USER_ID" ColumnName="UMOB_USER_ID" />
+                <ScalarProperty Name="UMOB_TOKEN" ColumnName="UMOB_TOKEN" />
+                <ScalarProperty Name="UMOB_ID_PHONE" ColumnName="UMOB_ID_PHONE" />
+                <ScalarProperty Name="UMOB_STATUS" ColumnName="UMOB_STATUS" />
+                <ScalarProperty Name="AUD_DATE_REGISTERED" ColumnName="AUD_DATE_REGISTERED" />
+                <ScalarProperty Name="AUD_DATE_LASTUPDATED" ColumnName="AUD_DATE_LASTUPDATED" />
+                <ScalarProperty Name="AUD_USERID_REGISTERED" ColumnName="AUD_USERID_REGISTERED" />
+                <ScalarProperty Name="AUD_USERID_LASTUPDATED" ColumnName="AUD_USERID_LASTUPDATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllConfigurationByTableName" FunctionName="DB_ICMModel.Store.WEB_GetAllConfigurationByTableName" />
+          <FunctionImportMapping FunctionImportName="WEB_GetAllContainerTypes" FunctionName="DB_ICMModel.Store.WEB_GetAllContainerTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllContainerTypes_Result">
+                <ScalarProperty Name="CONTY_ID" ColumnName="CONTY_ID" />
+                <ScalarProperty Name="CONTY_DESCRIPTION" ColumnName="CONTY_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllCustomers" FunctionName="DB_ICMModel.Store.WEB_GetAllCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllCustomers_Result">
+                <ScalarProperty Name="CUS_ID" ColumnName="CUS_ID" />
+                <ScalarProperty Name="CUS_NAME" ColumnName="CUS_NAME" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllDropDownListForShipmentDetails" FunctionName="DB_ICMModel.Store.WEB_GetAllDropDownListForShipmentDetails" />
+          <FunctionImportMapping FunctionImportName="WEB_GetAllItemTypes" FunctionName="DB_ICMModel.Store.WEB_GetAllItemTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllItemTypes_Result">
+                <ScalarProperty Name="ITEMTY_ID" ColumnName="ITEMTY_ID" />
+                <ScalarProperty Name="ITEMTY_DESCRIPTION" ColumnName="ITEMTY_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllReportShipmentsByCustomer" FunctionName="DB_ICMModel.Store.WEB_GetAllReportShipmentsByCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllReportShipmentsByCustomer_Result">
+                <ScalarProperty Name="RPT_SHIP_ID" ColumnName="RPT_SHIP_ID" />
+                <ScalarProperty Name="RPT_CUS_ID" ColumnName="RPT_CUS_ID" />
+                <ScalarProperty Name="RPT_SHIP_CODE" ColumnName="RPT_SHIP_CODE" />
+                <ScalarProperty Name="RPT_SHIP_NRO_PER" ColumnName="RPT_SHIP_NRO_PER" />
+                <ScalarProperty Name="RPT_CUS_NAME" ColumnName="RPT_CUS_NAME" />
+                <ScalarProperty Name="RPT_SHIP_DATE_SCHEDULED" ColumnName="RPT_SHIP_DATE_SCHEDULED" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllRoles" FunctionName="DB_ICMModel.Store.WEB_GetAllRoles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllRoles_Result">
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_DESCRIPTION" ColumnName="ROL_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllShipments" FunctionName="DB_ICMModel.Store.WEB_GetAllShipments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllShipments_Result">
+                <ScalarProperty Name="SHIP_ID" ColumnName="SHIP_ID" />
+                <ScalarProperty Name="SHIP_CODE" ColumnName="SHIP_CODE" />
+                <ScalarProperty Name="SHIP_TOTAL_ITEMS" ColumnName="SHIP_TOTAL_ITEMS" />
+                <ScalarProperty Name="ITEMTY_DESCRIPTION" ColumnName="ITEMTY_DESCRIPTION" />
+                <ScalarProperty Name="CONTY_DESCRIPTION" ColumnName="CONTY_DESCRIPTION" />
+                <ScalarProperty Name="SHIP_AMOUNT_CONTAINER" ColumnName="SHIP_AMOUNT_CONTAINER" />
+                <ScalarProperty Name="SHIP_DATE_SCHEDULED" ColumnName="SHIP_DATE_SCHEDULED" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetAllUsers" FunctionName="DB_ICMModel.Store.WEB_GetAllUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetAllUsers_Result">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+                <ScalarProperty Name="USER_DNI" ColumnName="USER_DNI" />
+                <ScalarProperty Name="USER_MOB_PHONE" ColumnName="USER_MOB_PHONE" />
+                <ScalarProperty Name="USER_ROL_DESCRIPTION" ColumnName="USER_ROL_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetConfigurationById" FunctionName="DB_ICMModel.Store.WEB_GetConfigurationById" />
+          <FunctionImportMapping FunctionImportName="WEB_GetContainersByShipmentId" FunctionName="DB_ICMModel.Store.WEB_GetContainersByShipmentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetContainersByShipmentId_Result">
+                <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
+                <ScalarProperty Name="CONT_SHIP_ID" ColumnName="CONT_SHIP_ID" />
+                <ScalarProperty Name="CONT_CODE" ColumnName="CONT_CODE" />
+                <ScalarProperty Name="CONT_AMOUNT_ITEM" ColumnName="CONT_AMOUNT_ITEM" />
+                <ScalarProperty Name="CONT_WEIGHT" ColumnName="CONT_WEIGHT" />
+                <ScalarProperty Name="CONT_STATE" ColumnName="CONT_STATE" />
+                <ScalarProperty Name="CONT_PREC_ADUANA" ColumnName="CONT_PREC_ADUANA" />
+                <ScalarProperty Name="CONT_PREC_LINE" ColumnName="CONT_PREC_LINE" />
+                <ScalarProperty Name="CONT_PREC_ITK" ColumnName="CONT_PREC_ITK" />
+                <ScalarProperty Name="CONT_PREC_CUS" ColumnName="CONT_PREC_CUS" />
+                <ScalarProperty Name="CONT_OBS" ColumnName="CONT_OBS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetDetailsByShipmentCode" FunctionName="DB_ICMModel.Store.WEB_GetDetailsByShipmentCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetDetailsByShipmentCode_Result">
+                <ScalarProperty Name="SHIP_ID" ColumnName="SHIP_ID" />
+                <ScalarProperty Name="ITEMTY_ID" ColumnName="ITEMTY_ID" />
+                <ScalarProperty Name="SHIP_ITEMTY_UNIT_WEIGHT" ColumnName="SHIP_ITEMTY_UNIT_WEIGHT" />
+                <ScalarProperty Name="SHIP_ITEMTY_UNIT_MEASURE" ColumnName="SHIP_ITEMTY_UNIT_MEASURE" />
+                <ScalarProperty Name="SHIP_CODE" ColumnName="SHIP_CODE" />
+                <ScalarProperty Name="SHIP_TOTAL_ITEMS" ColumnName="SHIP_TOTAL_ITEMS" />
+                <ScalarProperty Name="SHIP_ITEMTY_DESCRIPTION" ColumnName="SHIP_ITEMTY_DESCRIPTION" />
+                <ScalarProperty Name="SHIP_CONTY_DESCRIPTION" ColumnName="SHIP_CONTY_DESCRIPTION" />
+                <ScalarProperty Name="SHIP_AMOUNT_CONTAINER" ColumnName="SHIP_AMOUNT_CONTAINER" />
+                <ScalarProperty Name="SHIP_CUS_ID" ColumnName="SHIP_CUS_ID" />
+                <ScalarProperty Name="SHIP_SHIPPER_ID" ColumnName="SHIP_SHIPPER_ID" />
+                <ScalarProperty Name="SHIP_NAV_ID" ColumnName="SHIP_NAV_ID" />
+                <ScalarProperty Name="SHIP_RPTSI_ID" ColumnName="SHIP_RPTSI_ID" />
+                <ScalarProperty Name="SHIP_RPTSW_ID" ColumnName="SHIP_RPTSW_ID" />
+                <ScalarProperty Name="SHIP_PORTL_ID" ColumnName="SHIP_PORTL_ID" />
+                <ScalarProperty Name="SHIP_PORTD_ID" ColumnName="SHIP_PORTD_ID" />
+                <ScalarProperty Name="SHIP_PROD_ID" ColumnName="SHIP_PROD_ID" />
+                <ScalarProperty Name="SHIP_PRO_ID" ColumnName="SHIP_PRO_ID" />
+                <ScalarProperty Name="SHIP_RPTS_CLIENT" ColumnName="SHIP_RPTS_CLIENT" />
+                <ScalarProperty Name="SHIP_ITEMTY_ID" ColumnName="SHIP_ITEMTY_ID" />
+                <ScalarProperty Name="SHIP_CONTY_ID" ColumnName="SHIP_CONTY_ID" />
+                <ScalarProperty Name="SHIP_NRO_PER" ColumnName="SHIP_NRO_PER" />
+                <ScalarProperty Name="SHIP_BOOKING" ColumnName="SHIP_BOOKING" />
+                <ScalarProperty Name="SHIP_BL" ColumnName="SHIP_BL" />
+                <ScalarProperty Name="SHIP_DATE_SCHEDULED" ColumnName="SHIP_DATE_SCHEDULED" />
+                <ScalarProperty Name="SHIP_TOTAL_ITEMS1" ColumnName="SHIP_TOTAL_ITEMS1" />
+                <ScalarProperty Name="SHIP_AMOUNT_CONTAINER1" ColumnName="SHIP_AMOUNT_CONTAINER1" />
+                <ScalarProperty Name="SHIP_VESSEL" ColumnName="SHIP_VESSEL" />
+                <ScalarProperty Name="SHIP_DESCRIPTION" ColumnName="SHIP_DESCRIPTION" />
+                <ScalarProperty Name="SHIP_OBS_GENERAL" ColumnName="SHIP_OBS_GENERAL" />
+                <ScalarProperty Name="SHIP_OBS_REPORT" ColumnName="SHIP_OBS_REPORT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetDistributionLoteById" FunctionName="DB_ICMModel.Store.WEB_GetDistributionLoteById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetDistributionLoteById_Result">
+                <ScalarProperty Name="DISLOTE_LOTE_ID" ColumnName="DISLOTE_LOTE_ID" />
+                <ScalarProperty Name="DISLOTE_LOTE_CODE" ColumnName="DISLOTE_LOTE_CODE" />
+                <ScalarProperty Name="DISLOTE_LOTE_AMOUNT_ITEM" ColumnName="DISLOTE_LOTE_AMOUNT_ITEM" />
+                <ScalarProperty Name="DIS_ITEMTY_DESCRIPTION" ColumnName="DIS_ITEMTY_DESCRIPTION" />
+                <ScalarProperty Name="DISLOTE_WEIGHT" ColumnName="DISLOTE_WEIGHT" />
+                <ScalarProperty Name="DISLOTE_ITEMTY_UNIT_MEASURE" ColumnName="DISLOTE_ITEMTY_UNIT_MEASURE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetExistsShipmentCode" FunctionName="DB_ICMModel.Store.WEB_GetExistsShipmentCode" />
+          <FunctionImportMapping FunctionImportName="WEB_GetInspectionReportByCustomerIdAndNroPer" FunctionName="DB_ICMModel.Store.WEB_GetInspectionReportByCustomerIdAndNroPer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetInspectionReportByCustomerIdAndNroPer_Result">
+                <ScalarProperty Name="INS_SHIPPER" ColumnName="INS_SHIPPER" />
+                <ScalarProperty Name="INS_PRODUCTS" ColumnName="INS_PRODUCTS" />
+                <ScalarProperty Name="INS_DATE_SHIPMENT" ColumnName="INS_DATE_SHIPMENT" />
+                <ScalarProperty Name="INS_PERFORMED_BY" ColumnName="INS_PERFORMED_BY" />
+                <ScalarProperty Name="INS_REFERENCE" ColumnName="INS_REFERENCE" />
+                <ScalarProperty Name="INS_IDENTIFICATION" ColumnName="INS_IDENTIFICATION" />
+                <ScalarProperty Name="INS_DATE_PRODUCTION" ColumnName="INS_DATE_PRODUCTION" />
+                <ScalarProperty Name="INS_VESSEL" ColumnName="INS_VESSEL" />
+                <ScalarProperty Name="INS_PORT_OF_LOADING" ColumnName="INS_PORT_OF_LOADING" />
+                <ScalarProperty Name="INS_PORT_OF_DISCHARGE" ColumnName="INS_PORT_OF_DISCHARGE" />
+                <ScalarProperty Name="INS_LOT" ColumnName="INS_LOT" />
+                <ScalarProperty Name="INS_DESCRIPTION" ColumnName="INS_DESCRIPTION" />
+                <ScalarProperty Name="INS_SHIP_CUS_ID" ColumnName="INS_SHIP_CUS_ID" />
+                <ScalarProperty Name="INS_SHIP_ID" ColumnName="INS_SHIP_ID" />
+                <ScalarProperty Name="INS_SHIP_CODE" ColumnName="INS_SHIP_CODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetLotesByShipmentId" FunctionName="DB_ICMModel.Store.WEB_GetLotesByShipmentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetLotesByShipmentId_Result">
+                <ScalarProperty Name="DIS_LOTE_ID" ColumnName="DIS_LOTE_ID" />
+                <ScalarProperty Name="DIS_LOTE_CODE" ColumnName="DIS_LOTE_CODE" />
+                <ScalarProperty Name="DIS_AMOUNT_TOTAL" ColumnName="DIS_AMOUNT_TOTAL" />
+                <ScalarProperty Name="DIS_ITEMTY_DESCRIPTION" ColumnName="DIS_ITEMTY_DESCRIPTION" />
+                <ScalarProperty Name="DIS_WEIGHT" ColumnName="DIS_WEIGHT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetReferenceByShipmentId" FunctionName="DB_ICMModel.Store.WEB_GetReferenceByShipmentId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetReferenceByShipmentId_Result">
+                <ScalarProperty Name="SHIP_ID" ColumnName="SHIP_ID" />
+                <ScalarProperty Name="SHIP_REFERENCE" ColumnName="SHIP_REFERENCE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetReportObservationById" FunctionName="DB_ICMModel.Store.WEB_GetReportObservationById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetReportObservationById_Result">
+                <ScalarProperty Name="RPTOBS_ID" ColumnName="RPTOBS_ID" />
+                <ScalarProperty Name="RPTOBS_OBSERVATION" ColumnName="RPTOBS_OBSERVATION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetReportObservations" FunctionName="DB_ICMModel.Store.WEB_GetReportObservations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetReportObservations_Result">
+                <ScalarProperty Name="RPTOBS_ID" ColumnName="RPTOBS_ID" />
+                <ScalarProperty Name="RPTOBS_OBSERVATION" ColumnName="RPTOBS_OBSERVATION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetShipmentsByDate" FunctionName="DB_ICMModel.Store.WEB_GetShipmentsByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetShipmentsByDate_Result">
+                <ScalarProperty Name="SHIP_ID" ColumnName="SHIP_ID" />
+                <ScalarProperty Name="SHIP_CODE" ColumnName="SHIP_CODE" />
+                <ScalarProperty Name="SHIP_STATE" ColumnName="SHIP_STATE" />
+                <ScalarProperty Name="SHIP_DAY" ColumnName="SHIP_DAY" />
+                <ScalarProperty Name="SHIP_COUNT_ITEMS" ColumnName="SHIP_COUNT_ITEMS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetUserByEmail" FunctionName="DB_ICMModel.Store.WEB_GetUserByEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetUserByEmail_Result">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetUserByEmailAndPassword" FunctionName="DB_ICMModel.Store.WEB_GetUserByEmailAndPassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetUserByEmailAndPassword_Result">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_LASTNAME" ColumnName="USER_LASTNAME" />
+                <ScalarProperty Name="USER_ROL_ID" ColumnName="USER_ROL_ID" />
+                <ScalarProperty Name="USER_ROL_DESCRIPTION" ColumnName="USER_ROL_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GetUserById" FunctionName="DB_ICMModel.Store.WEB_GetUserById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_ICMModel.WEB_GetUserById_Result">
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_LASTNAME" ColumnName="USER_LASTNAME" />
+                <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="USER_DNI" ColumnName="USER_DNI" />
+                <ScalarProperty Name="USER_BIRTHDATE" ColumnName="USER_BIRTHDATE" />
+                <ScalarProperty Name="USER_MOB_PHONE" ColumnName="USER_MOB_PHONE" />
+                <ScalarProperty Name="USER_PHONE" ColumnName="USER_PHONE" />
+                <ScalarProperty Name="USER_ROL_ID" ColumnName="USER_ROL_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_PostDeleteConfiguration" FunctionName="DB_ICMModel.Store.WEB_PostDeleteConfiguration" />
+          <FunctionImportMapping FunctionImportName="WEB_PostDeleteLote" FunctionName="DB_ICMModel.Store.WEB_PostDeleteLote" />
+          <FunctionImportMapping FunctionImportName="WEB_PostDeleteReportObservation" FunctionName="DB_ICMModel.Store.WEB_PostDeleteReportObservation" />
+          <FunctionImportMapping FunctionImportName="WEB_PostDeleteShipment" FunctionName="DB_ICMModel.Store.WEB_PostDeleteShipment" />
+          <FunctionImportMapping FunctionImportName="WEB_PostDeleteUser" FunctionName="DB_ICMModel.Store.WEB_PostDeleteUser" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveConfiguration" FunctionName="DB_ICMModel.Store.WEB_PostSaveConfiguration" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveContainer" FunctionName="DB_ICMModel.Store.WEB_PostSaveContainer" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveForgetPassword" FunctionName="DB_ICMModel.Store.WEB_PostSaveForgetPassword" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveLote" FunctionName="DB_ICMModel.Store.WEB_PostSaveLote" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveReportObservation" FunctionName="DB_ICMModel.Store.WEB_PostSaveReportObservation" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveShipment" FunctionName="DB_ICMModel.Store.WEB_PostSaveShipment" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveShipmentDetails" FunctionName="DB_ICMModel.Store.WEB_PostSaveShipmentDetails" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveShipmentReference" FunctionName="DB_ICMModel.Store.WEB_PostSaveShipmentReference" />
+          <FunctionImportMapping FunctionImportName="WEB_PostSaveUser" FunctionName="DB_ICMModel.Store.WEB_PostSaveUser" />
+          <FunctionImportMapping FunctionImportName="WEB_PostValidateLoginByAccountAndPassword" FunctionName="DB_ICMModel.Store.WEB_PostValidateLoginByAccountAndPassword" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
