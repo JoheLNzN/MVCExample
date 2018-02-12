@@ -1,0 +1,29 @@
+﻿@model List <MVCExample.Models.ADM_ROL>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Listado de Roles</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rol</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var rol in Model)
+        {
+            <tr>
+                <td>@rol.ROL_ID</td>
+                <td>@rol.ROL_DESCRIPTION</td>
+                <td>@Html.ActionLink("Editar", "") | @Html.ActionLink("Eliminar", "")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -12,7 +12,7 @@ namespace MVCExample.Controllers
         public ActionResult Index()
         {
             var roles = (from r in bd.ADM_ROL
-                         select new { r.ROL_ID, r.ROL_DESCRIPTION }).ToList();
+                         select r).ToList();
 
             return View(roles);
         }
